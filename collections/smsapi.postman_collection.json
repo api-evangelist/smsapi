@@ -1,0 +1,397 @@
+{
+  "info": {
+    "_postman_id": "b3f1a2c4-7e58-4d21-9a3f-2c9b6e0f4d10",
+    "name": "SMSAPI REST API",
+    "description": "Representative Postman collection for the SMSAPI messaging platform (part of LINK Mobility): SMS, MMS, VMS voice, contacts, sender names, 2FA, subusers, profile, HLR, blacklist, and short URLs. Authenticate with an OAuth 2.0 bearer token generated in the SMSAPI customer panel.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.smsapi.com",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "SMS",
+      "item": [
+        {
+          "name": "Send an SMS message.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "to", "value": "48500000000" },
+                { "key": "message", "value": "Hello from SMSAPI" },
+                { "key": "from", "value": "Info" },
+                { "key": "format", "value": "json" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sms.do",
+              "host": ["{{baseUrl}}"],
+              "path": ["sms.do"]
+            },
+            "description": "Send single, bulk, scheduled, or templated text messages."
+          }
+        }
+      ]
+    },
+    {
+      "name": "MMS",
+      "item": [
+        {
+          "name": "Send an MMS message.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "to", "value": "48500000000" },
+                { "key": "subject", "value": "Promo" },
+                { "key": "smil", "value": "<smil>...</smil>" },
+                { "key": "format", "value": "json" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mms.do",
+              "host": ["{{baseUrl}}"],
+              "path": ["mms.do"]
+            },
+            "description": "Send a multimedia message with SMIL/image content."
+          }
+        }
+      ]
+    },
+    {
+      "name": "VMS",
+      "item": [
+        {
+          "name": "Send a voice message (VMS).",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "to", "value": "48500000000" },
+                { "key": "tts", "value": "This is a voice message from SMSAPI" },
+                { "key": "format", "value": "json" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/vms.do",
+              "host": ["{{baseUrl}}"],
+              "path": ["vms.do"]
+            },
+            "description": "Deliver a voice message from text-to-speech or an uploaded audio file."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "item": [
+        {
+          "name": "Get account profile and balance.",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/profile",
+              "host": ["{{baseUrl}}"],
+              "path": ["profile"]
+            },
+            "description": "Returns account profile details and current points balance."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Contacts",
+      "item": [
+        {
+          "name": "List contacts.",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/contacts",
+              "host": ["{{baseUrl}}"],
+              "path": ["contacts"]
+            },
+            "description": "List contacts with optional filtering."
+          }
+        },
+        {
+          "name": "Create a contact.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone_number\": \"48500000000\",\n  \"first_name\": \"Jan\",\n  \"last_name\": \"Kowalski\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/contacts",
+              "host": ["{{baseUrl}}"],
+              "path": ["contacts"]
+            },
+            "description": "Create a new contact in the address book."
+          }
+        },
+        {
+          "name": "Assign a contact to a group.",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/contacts/:contactId/groups/:groupId",
+              "host": ["{{baseUrl}}"],
+              "path": ["contacts", ":contactId", "groups", ":groupId"],
+              "variable": [
+                { "key": "contactId", "value": "" },
+                { "key": "groupId", "value": "" }
+              ]
+            },
+            "description": "Assign a contact to a contact group."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sender Names",
+      "item": [
+        {
+          "name": "List sender names.",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/sendernames",
+              "host": ["{{baseUrl}}"],
+              "path": ["sendernames"]
+            },
+            "description": "List registered sender names."
+          }
+        },
+        {
+          "name": "Register a new sender name.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sender\": \"MyBrand\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sendernames",
+              "host": ["{{baseUrl}}"],
+              "path": ["sendernames"]
+            },
+            "description": "Register a new alphanumeric sender name."
+          }
+        }
+      ]
+    },
+    {
+      "name": "2FA",
+      "item": [
+        {
+          "name": "Send a one-time 2FA code.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipient\": \"48500000000\",\n  \"channel\": \"sms\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/authenticator/send_code",
+              "host": ["{{baseUrl}}"],
+              "path": ["authenticator", "send_code"]
+            },
+            "description": "Generate and deliver a one-time passcode over SMS or voice."
+          }
+        },
+        {
+          "name": "Validate a one-time 2FA code.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<code-id>\",\n  \"code\": \"123456\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/authenticator/check_code",
+              "host": ["{{baseUrl}}"],
+              "path": ["authenticator", "check_code"]
+            },
+            "description": "Validate a previously sent one-time passcode."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Subusers",
+      "item": [
+        {
+          "name": "List subusers.",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/subusers",
+              "host": ["{{baseUrl}}"],
+              "path": ["subusers"]
+            },
+            "description": "List subaccounts (subusers)."
+          }
+        },
+        {
+          "name": "Create a subuser.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"team-a\",\n  \"password\": \"<secret>\",\n  \"active\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/subusers",
+              "host": ["{{baseUrl}}"],
+              "path": ["subusers"]
+            },
+            "description": "Create a new subuser for delegated sending."
+          }
+        }
+      ]
+    },
+    {
+      "name": "HLR",
+      "item": [
+        {
+          "name": "Perform an HLR lookup.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "number", "value": "48500000000" },
+                { "key": "format", "value": "json" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/hlr.do",
+              "host": ["{{baseUrl}}"],
+              "path": ["hlr.do"]
+            },
+            "description": "Validate a phone number and resolve carrier/portability."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Blacklist",
+      "item": [
+        {
+          "name": "List blacklisted phone numbers.",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/blacklist/phone_numbers",
+              "host": ["{{baseUrl}}"],
+              "path": ["blacklist", "phone_numbers"]
+            },
+            "description": "List blacklisted (opted-out) phone numbers."
+          }
+        },
+        {
+          "name": "Add a phone number to the blacklist.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone_number\": \"48500000000\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/blacklist/phone_numbers",
+              "host": ["{{baseUrl}}"],
+              "path": ["blacklist", "phone_numbers"]
+            },
+            "description": "Add a phone number to the blacklist."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Short URLs",
+      "item": [
+        {
+          "name": "Create a cut.li short link.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Campaign\",\n  \"url\": \"https://www.smsapi.com/\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/short_urls/links",
+              "host": ["{{baseUrl}}"],
+              "path": ["short_urls", "links"]
+            },
+            "description": "Create a trackable cut.li short link."
+          }
+        }
+      ]
+    }
+  ]
+}

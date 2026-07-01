@@ -1,0 +1,117 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: SMSAPI
+providerId: smsapi
+created: '2026-07-01'
+modified: '2026-07-01'
+reconciled: false
+tags:
+- Messaging
+- SMS
+- MMS
+- Voice
+- 2FA
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of SMSAPI spend. SMSAPI uses a prepaid credit ("points") model:
+  every SMS, MMS, VMS voice message, HLR lookup, and 2FA delivery draws down a
+  topped-up balance at a per-message rate that depends on destination country,
+  operator, message length (segments), and negotiated volume. Because charges
+  are prepaid and per-message, cost governance centers on tracking points burn
+  per subuser/route, right-sizing message length and encoding, and negotiating
+  volume rates.
+notes: >-
+  SMSAPI is part of LINK Mobility. Per-message rates are destination- and
+  volume-dependent; verify against the SMSAPI pricing page and customer-panel
+  usage reports during reconciliation.
+sources:
+- https://www.smsapi.com/en/prices
+- https://www.smsapi.com/docs/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: SMSAPI
+serviceCategory: Communications
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Prepaid
+  billingCurrency: Multi-currency (EUR/PLN/USD)
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: SMSAPI Messaging
+  ServiceCategory: Communications
+  ProviderName: SMSAPI
+  PublisherName: SMSAPI
+  InvoiceIssuerName: SMSAPI (LINK Mobility)
+  BillingCurrency: EUR
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: sms_segments
+  description: SMS message segments sent, billed per segment by destination and operator.
+  unit: messages
+  aggregation: sum
+  dimensions:
+  - account
+  - subuser
+  - country
+  - sender
+- name: mms_messages
+  description: MMS multimedia messages sent, billed per message by destination.
+  unit: messages
+  aggregation: sum
+  dimensions:
+  - account
+  - subuser
+  - country
+- name: vms_calls
+  description: VMS voice messages delivered, billed per call by destination and duration.
+  unit: calls
+  aggregation: sum
+  dimensions:
+  - account
+  - subuser
+  - country
+- name: two_fa_messages
+  description: 2FA one-time-passcode deliveries, billed as the underlying SMS or voice message.
+  unit: messages
+  aggregation: sum
+  dimensions:
+  - account
+  - channel
+- name: hlr_lookups
+  description: HLR number-validation lookups, billed per lookup.
+  unit: lookups
+  aggregation: sum
+  dimensions:
+  - account
+  - country
+- name: points_balance
+  description: Prepaid credit (points) topped up and drawn down across all messaging.
+  unit: points
+  aggregation: sum
+  dimensions:
+  - account
+  - subuser
+principles:
+- name: Visibility
+  description: Pull customer-panel usage reports and delivery callbacks; track points burn per subuser, country, and sender.
+- name: Allocation
+  description: Use subusers and per-token separation to map messaging spend to teams, campaigns, or clients.
+- name: Optimization
+  description: Right-size message length and encoding to reduce segment count; batch recipients; run HLR before large sends to drop invalid numbers; negotiate volume rates.
+- name: Accountability
+  description: Assign owners per subuser/route; monitor prepaid balance and set top-up alerts to avoid send interruptions.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

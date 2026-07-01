@@ -1,0 +1,267 @@
+aid: smsapi
+url: https://raw.githubusercontent.com/api-evangelist/smsapi/refs/heads/main/apis.yml
+name: SMSAPI
+kind: company
+description: SMSAPI is a European bulk business-messaging provider headquartered in
+  Poland and part of LINK Mobility. Its REST API delivers SMS, MMS, and voice (VMS)
+  messaging, email marketing, two-factor authentication, contact and group management,
+  sender field registration, subuser administration, and account/profile operations,
+  authenticated with OAuth 2.0 bearer tokens over api.smsapi.com and api.smsapi.eu.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Messaging
+- SMS
+- MMS
+- Voice
+- 2FA
+- Bulk Messaging
+- Communications
+- CPaaS
+created: '2026-07-01'
+modified: '2026-07-01'
+specificationVersion: '0.19'
+apis:
+- aid: smsapi:smsapi-sms-api
+  name: SMSAPI SMS API
+  tags:
+  - SMS
+  - Messaging
+  - Bulk Messaging
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.smsapi.com/docs/#sms-api
+  baseURL: https://api.smsapi.com/sms.do
+  properties:
+  - url: https://www.smsapi.com/docs/#sms-api
+    type: Documentation
+  - url: https://www.smsapi.com/docs/
+    type: APIReference
+  - url: openapi/smsapi-openapi.yml
+    type: OpenAPI
+  - url: collections/smsapi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/smsapi.opencollection.json
+    type: OpenCollection
+  description: Send single, bulk, scheduled, and templated text messages via POST
+    to /sms.do, with sender field, flash, personalization, opt-out links, and cut.li
+    short-URL support, plus delivery-report callbacks.
+- aid: smsapi:smsapi-mms-api
+  name: SMSAPI MMS API
+  tags:
+  - MMS
+  - Messaging
+  - Multimedia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.smsapi.com/docs/#mms-api
+  baseURL: https://api.smsapi.com/mms.do
+  properties:
+  - url: https://www.smsapi.com/docs/#mms-api
+    type: Documentation
+  - url: openapi/smsapi-openapi.yml
+    type: OpenAPI
+  - url: collections/smsapi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/smsapi.opencollection.json
+    type: OpenCollection
+  description: Send multimedia messages (SMIL/image content) to one or many recipients
+    via POST to /mms.do, with scheduling and delivery reporting.
+- aid: smsapi:smsapi-vms-api
+  name: SMSAPI VMS Voice API
+  tags:
+  - Voice
+  - VMS
+  - Text to Speech
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.smsapi.com/docs/#vms-api
+  baseURL: https://api.smsapi.com/vms.do
+  properties:
+  - url: https://www.smsapi.com/docs/#vms-api
+    type: Documentation
+  - url: openapi/smsapi-openapi.yml
+    type: OpenAPI
+  - url: collections/smsapi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/smsapi.opencollection.json
+    type: OpenCollection
+  description: Deliver voice messages (VMS) from text-to-speech or an uploaded audio
+    file via POST to /vms.do, with scheduling and call-result callbacks.
+- aid: smsapi:smsapi-contacts-api
+  name: SMSAPI Contacts API
+  tags:
+  - Contacts
+  - Groups
+  - Address Book
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.smsapi.com/docs/#contacts-api
+  baseURL: https://api.smsapi.com/contacts
+  properties:
+  - url: https://www.smsapi.com/docs/#contacts-api
+    type: Documentation
+  - url: openapi/smsapi-openapi.yml
+    type: OpenAPI
+  - url: collections/smsapi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/smsapi.opencollection.json
+    type: OpenCollection
+  description: Full CRUD over the contact address book, contact groups, and custom
+    fields via /contacts, /contacts/{id}/groups, and /contacts/groups, for building
+    and segmenting recipient lists.
+- aid: smsapi:smsapi-sender-names-api
+  name: SMSAPI Sender Names API
+  tags:
+  - Sender Names
+  - Sender Fields
+  - Branding
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.smsapi.com/docs/#sender-names-api
+  baseURL: https://api.smsapi.com/sendernames
+  properties:
+  - url: https://www.smsapi.com/docs/#sender-names-api
+    type: Documentation
+  - url: openapi/smsapi-openapi.yml
+    type: OpenAPI
+  - url: collections/smsapi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/smsapi.opencollection.json
+    type: OpenCollection
+  description: List, register, inspect, and remove alphanumeric sender fields (sender
+    names) via /sendernames, including default sender selection for outbound SMS.
+- aid: smsapi:smsapi-2fa-api
+  name: SMSAPI 2FA Authentication API
+  tags:
+  - 2FA
+  - Authentication
+  - Verification
+  - OTP
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.smsapi.com/docs/#2fa-api
+  baseURL: https://api.smsapi.com/authenticator
+  properties:
+  - url: https://www.smsapi.com/docs/#2fa-api
+    type: Documentation
+  - url: openapi/smsapi-openapi.yml
+    type: OpenAPI
+  - url: collections/smsapi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/smsapi.opencollection.json
+    type: OpenCollection
+  description: Generate and validate one-time passcodes for two-factor authentication
+    via /authenticator/send_code and /authenticator/check_code, delivered over SMS
+    or voice.
+- aid: smsapi:smsapi-subusers-api
+  name: SMSAPI Subusers API
+  tags:
+  - Subusers
+  - Account Management
+  - Administration
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.smsapi.com/docs/#subusers-api
+  baseURL: https://api.smsapi.com/subusers
+  properties:
+  - url: https://www.smsapi.com/docs/#subusers-api
+    type: Documentation
+  - url: openapi/smsapi-openapi.yml
+    type: OpenAPI
+  - url: collections/smsapi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/smsapi.opencollection.json
+    type: OpenCollection
+  description: Create and administer subaccounts (subusers) via /subusers, including
+    credit allocation, points limits, and per-subuser permissions for delegated sending.
+- aid: smsapi:smsapi-profile-api
+  name: SMSAPI Profile and Account API
+  tags:
+  - Profile
+  - Account
+  - Balance
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.smsapi.com/docs/#profile-api
+  baseURL: https://api.smsapi.com/profile
+  properties:
+  - url: https://www.smsapi.com/docs/#profile-api
+    type: Documentation
+  - url: openapi/smsapi-openapi.yml
+    type: OpenAPI
+  - url: collections/smsapi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/smsapi.opencollection.json
+    type: OpenCollection
+  description: Retrieve account profile details and current credit balance (points)
+    via GET /profile for monitoring available funds before sending.
+- aid: smsapi:smsapi-hlr-api
+  name: SMSAPI HLR Lookup API
+  tags:
+  - HLR
+  - Number Validation
+  - Lookup
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.smsapi.com/docs/#hlr-api
+  baseURL: https://api.smsapi.com/hlr.do
+  properties:
+  - url: https://www.smsapi.com/docs/#hlr-api
+    type: Documentation
+  - url: openapi/smsapi-openapi.yml
+    type: OpenAPI
+  - url: collections/smsapi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/smsapi.opencollection.json
+    type: OpenCollection
+  description: Validate phone numbers and resolve carrier, portability, and reachability
+    information via HLR lookups on /hlr.do, with results returned inline or via callback.
+- aid: smsapi:smsapi-blacklist-api
+  name: SMSAPI Blacklist API
+  tags:
+  - Blacklist
+  - Opt-Out
+  - Compliance
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.smsapi.com/docs/#blacklist-api
+  baseURL: https://api.smsapi.com/blacklist/phone_numbers
+  properties:
+  - url: https://www.smsapi.com/docs/#blacklist-api
+    type: Documentation
+  - url: openapi/smsapi-openapi.yml
+    type: OpenAPI
+  - url: collections/smsapi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/smsapi.opencollection.json
+    type: OpenCollection
+  description: Manage opted-out recipients via /blacklist/phone_numbers so blacklisted
+    numbers are automatically excluded from outbound campaigns for compliance.
+- aid: smsapi:smsapi-short-urls-api
+  name: SMSAPI Short URLs API
+  tags:
+  - Short URLs
+  - cut.li
+  - Link Tracking
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.smsapi.com/docs/#short-urls-api
+  baseURL: https://api.smsapi.com/short_urls
+  properties:
+  - url: https://www.smsapi.com/docs/#short-urls-api
+    type: Documentation
+  - url: openapi/smsapi-openapi.yml
+    type: OpenAPI
+  - url: collections/smsapi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/smsapi.opencollection.json
+    type: OpenCollection
+  description: Create and manage trackable cut.li short links via /short_urls and
+    retrieve per-link click statistics for measuring campaign engagement.
+common:
+- type: GitHubOrganization
+  url: https://github.com/smsapi
+- type: LinkedIn
+  url: https://www.linkedin.com/company/smsapi-com
+- type: Website
+  url: https://www.smsapi.com/
+- type: Documentation
+  url: https://www.smsapi.com/docs/
+- type: Plans
+  url: plans/smsapi-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/smsapi-rate-limits.yml
+- type: FinOps
+  url: finops/smsapi-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

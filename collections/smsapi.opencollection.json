@@ -1,0 +1,334 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SMSAPI REST API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SMS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send an SMS message.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/sms.do",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Send single, bulk, scheduled, or templated text messages."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "MMS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send an MMS message.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/mms.do",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Send a multimedia message with SMIL/image content."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "VMS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send a voice message (VMS).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/vms.do",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Deliver a voice message from text-to-speech or an uploaded audio file."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Profile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account profile and balance.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.smsapi.com/profile"
+          },
+          "docs": "Returns account profile details and current points balance."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List contacts.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.smsapi.com/contacts"
+          },
+          "docs": "List contacts with optional filtering."
+        },
+        {
+          "info": {
+            "name": "Create a contact.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/contacts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new contact in the address book."
+        },
+        {
+          "info": {
+            "name": "Assign a contact to a group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.smsapi.com/contacts/{contactId}/groups/{groupId}"
+          },
+          "docs": "Assign a contact to a contact group."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sender Names",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List sender names.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.smsapi.com/sendernames"
+          },
+          "docs": "List registered sender names."
+        },
+        {
+          "info": {
+            "name": "Register a new sender name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/sendernames",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Register a new alphanumeric sender name."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "2FA",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send a one-time 2FA code.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/authenticator/send_code",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate and deliver a one-time passcode over SMS or voice."
+        },
+        {
+          "info": {
+            "name": "Validate a one-time 2FA code.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/authenticator/check_code",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate a previously sent one-time passcode."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Subusers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List subusers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.smsapi.com/subusers"
+          },
+          "docs": "List subaccounts (subusers)."
+        },
+        {
+          "info": {
+            "name": "Create a subuser.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/subusers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new subuser for delegated sending."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "HLR",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Perform an HLR lookup.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/hlr.do",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Validate a phone number and resolve carrier/portability."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Blacklist",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List blacklisted phone numbers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.smsapi.com/blacklist/phone_numbers"
+          },
+          "docs": "List blacklisted (opted-out) phone numbers."
+        },
+        {
+          "info": {
+            "name": "Add a phone number to the blacklist.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/blacklist/phone_numbers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a phone number to the blacklist."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Short URLs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a cut.li short link.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/short_urls/links",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a trackable cut.li short link."
+        }
+      ]
+    }
+  ]
+}

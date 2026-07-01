@@ -1,0 +1,86 @@
+aid: smsapi
+name: SMSAPI
+review:
+  question: Does SMSAPI expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-01'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    Per API Evangelist scope, HTTP Server-Sent Events (SSE) and WebSocket are
+    the in-scope transports for AsyncAPI modeling. SMSAPI publishes neither. Its
+    only asynchronous surface is outbound HTTP callbacks (delivery reports, HLR
+    results, cut.li click events) that SMSAPI POSTs/GETs to a customer-configured
+    callback URL. These are provider-initiated webhooks, not a stream the client
+    subscribes to, so no AsyncAPI document was authored.
+findings:
+  summary: |
+    SMSAPI does not publish a documented public WebSocket API. The platform is a
+    REST/HTTP messaging API served from https://api.smsapi.com (and the EU host
+    https://api.smsapi.eu, with api2.smsapi.com as a failover). Message sending
+    (SMS/MMS/VMS), contacts, sender names, subusers, profile, HLR, blacklist,
+    2FA, and short URLs are all synchronous HTTPS request/response endpoints.
+    Asynchronous notifications are delivered via customer-configured HTTP
+    callbacks (delivery reports, HLR results, cut.li clicks), which are webhooks
+    rather than WebSocket or SSE. No realtime bidirectional (ws:// or wss://)
+    endpoint is documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.smsapi.com
+      documented: true
+    - protocol: Webhook
+      scheme: https
+      note: SMSAPI POSTs/GETs delivery reports, HLR results, and cut.li click events to a customer-configured callback URL. Provider-initiated HTTP callback, not a client subscription stream.
+      documented: true
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events streaming endpoint is documented.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in SMSAPI's API documentation as of the review date.
+  endpointsConfirmedRest:
+    - POST https://api.smsapi.com/sms.do
+    - POST https://api.smsapi.com/mms.do
+    - POST https://api.smsapi.com/vms.do
+    - POST https://api.smsapi.com/hlr.do
+    - GET  https://api.smsapi.com/profile
+    - GET  https://api.smsapi.com/contacts
+    - POST https://api.smsapi.com/contacts
+    - GET  https://api.smsapi.com/contacts/{contactId}
+    - PUT  https://api.smsapi.com/contacts/{contactId}
+    - DELETE https://api.smsapi.com/contacts/{contactId}
+    - PUT  https://api.smsapi.com/contacts/{contactId}/groups/{groupId}
+    - DELETE https://api.smsapi.com/contacts/{contactId}/groups/{groupId}
+    - GET  https://api.smsapi.com/sendernames
+    - POST https://api.smsapi.com/sendernames
+    - GET  https://api.smsapi.com/subusers
+    - POST https://api.smsapi.com/subusers
+    - POST https://api.smsapi.com/authenticator/send_code
+    - POST https://api.smsapi.com/authenticator/check_code
+    - GET  https://api.smsapi.com/blacklist/phone_numbers
+    - POST https://api.smsapi.com/blacklist/phone_numbers
+    - POST https://api.smsapi.com/short_urls/links
+sources:
+  - url: https://www.smsapi.com/docs/
+    type: Documentation
+    note: Lists REST base URLs api.smsapi.com / api2.smsapi.com, OAuth 2.0 bearer auth, 100 req/s per IP; no WebSocket mentioned.
+  - url: https://www.smsapi.com/rest/
+    type: APIReference
+    note: REST resources (contacts, sendernames, subusers, profile, blacklist, etc.) are all HTTPS request/response.
+  - url: https://www.smsapi.com/en/prices
+    type: Pricing
+    note: Confirms prepaid per-message messaging model; no realtime streaming product.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: false
+  reason: |
+    No WebSocket or SSE surface exists. SMSAPI's only asynchronous mechanism is
+    provider-initiated HTTP callbacks (webhooks), which are out of AsyncAPI
+    scope for this catalog, so no AsyncAPI document was authored and apis.yml was
+    not modified for streaming.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

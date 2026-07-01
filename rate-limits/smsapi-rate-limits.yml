@@ -1,0 +1,64 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: SMSAPI
+providerId: smsapi
+created: '2026-07-01'
+modified: '2026-07-01'
+reconciled: false
+tags:
+- Messaging
+- SMS
+- MMS
+- Voice
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  SMSAPI enforces a per-IP request rate limit on the HTTP API (documented at
+  roughly 100 requests per second per IP) and requires TLS 1.2. Beyond raw
+  request throughput, effective send throughput is governed by the prepaid
+  credit balance and, for high-volume traffic, by operator- and route-level
+  throughput agreements. Bulk sends should be batched (many recipients per
+  /sms.do call) rather than issued as one request per recipient. Specific
+  per-account throughput values are not reconciled in this artifact.
+notes: >-
+  Verify the current per-IP request ceiling and any account- or route-level
+  throughput limits in the SMSAPI documentation and customer panel; SMSAPI is
+  part of LINK Mobility and enterprise routes may carry negotiated throughput.
+sources:
+- https://www.smsapi.com/docs/
+- https://www.smsapi.com/en/prices
+responseCodes:
+  throttled: 429
+limits:
+- name: Requests Per Second (per IP)
+  scope: ip
+  metric: requests
+  limit: '100'
+  notes: Documented ceiling of ~100 requests/second per source IP on the HTTP API.
+- name: Recipients Per Request
+  scope: request
+  metric: recipients
+  limit: batch many recipients per call
+  notes: Use the "to" parameter with multiple comma-separated numbers instead of one request per recipient.
+- name: Account Send Throughput
+  scope: account
+  metric: messages
+  limit: see provider documentation
+  notes: Effective throughput depends on prepaid balance and operator/route agreements; varies by account.
+- name: TLS Requirement
+  scope: transport
+  metric: protocol
+  limit: TLS 1.2 minimum
+  notes: Requests must use TLS 1.2 or higher.
+policies:
+- name: Batching
+  description: Send to many recipients in a single request to stay within request-rate limits and reduce overhead.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter on 429 responses and honor any Retry-After header.
+- name: Failover Host
+  description: A secondary host (api2.smsapi.com) is available for redundancy if the primary host is unreachable.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

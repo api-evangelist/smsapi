@@ -1,0 +1,141 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: SMSAPI
+providerId: smsapi
+created: '2026-07-01'
+modified: '2026-07-01'
+reconciled: false
+tags:
+- Messaging
+- SMS
+- MMS
+- Voice
+- 2FA
+- Bulk Messaging
+- Plans
+description: >-
+  SMSAPI uses a prepaid, pay-as-you-go credit ("points") model. Customers top up
+  a balance and each SMS, MMS, VMS, HLR lookup, or 2FA message consumes credit at
+  a per-message rate that depends on destination country, operator, and message
+  length (segments). Prices decline with volume, and business/enterprise
+  customers can negotiate committed-volume rates and dedicated routes. There is no
+  monthly platform fee for standard API access; you pay only for what you send.
+notes: >-
+  SMSAPI is part of LINK Mobility. Per-message rates are destination- and
+  volume-dependent and are not reconciled here; verify current local and
+  international pricing on the SMSAPI pricing page and in the customer panel.
+sources:
+- https://www.smsapi.com/en/prices
+- https://www.smsapi.com/docs/
+plans:
+- id: smsapi-pay-as-you-go
+  name: Pay-as-you-go (Prepaid Credit)
+  type: usage
+  description: >-
+    Prepaid credit balance consumed per message. Rates vary by destination
+    country, operator, and message length; no monthly minimum.
+  entries:
+  - label: SMS (per message segment)
+    name: sms
+    type: usage
+    metric: messages
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: per-segment rate by destination and volume (see pricing page)
+    userMultiplied: false
+  - label: MMS (per message)
+    name: mms
+    type: usage
+    metric: messages
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: per-message rate by destination (see pricing page)
+    userMultiplied: false
+  - label: VMS Voice (per call)
+    name: vms
+    type: usage
+    metric: calls
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: per-call rate by destination and duration (see pricing page)
+    userMultiplied: false
+  - label: 2FA Authentication Message
+    name: two_fa
+    type: usage
+    metric: messages
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: billed as the underlying SMS or voice message
+    userMultiplied: false
+  - label: HLR Lookup
+    name: hlr
+    type: usage
+    metric: lookups
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: per-lookup rate (see pricing page)
+    userMultiplied: false
+  elements:
+  - name: SMS
+  - name: MMS
+  - name: VMS Voice
+  - name: 2FA
+  - name: Contacts
+  - name: Sender Names
+  - name: Short URLs
+- id: smsapi-business
+  name: Business / High Volume
+  type: usage
+  description: >-
+    Committed-volume prepaid pricing with lower per-message rates for high
+    senders, plus dedicated support.
+  entries:
+  - label: Volume SMS
+    name: volume_sms
+    type: usage
+    metric: messages
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: discounted per-segment rate scaling with monthly volume
+    userMultiplied: false
+  elements:
+  - name: Volume Discounts
+  - name: Priority Routes
+- id: smsapi-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Negotiated agreements for large senders: dedicated routes, SLAs, custom
+    integration, and account management via the LINK Mobility group. Contact
+    SMSAPI sales.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Volume Pricing
+  - name: Dedicated Routes
+  - name: SLA
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
