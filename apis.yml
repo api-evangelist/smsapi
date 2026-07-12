@@ -248,6 +248,12 @@ apis:
   description: Create and manage trackable cut.li short links via /short_urls and
     retrieve per-link click statistics for measuring campaign engagement.
 common:
+- type: TrustCenter
+  url: security/smsapi-trust-center.yml
+- type: DomainSecurity
+  url: security/smsapi-domain-security.yml
+- type: Authentication
+  url: authentication/smsapi-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/smsapi
 - type: LinkedIn
@@ -262,6 +268,8 @@ common:
   url: rate-limits/smsapi-rate-limits.yml
 - type: FinOps
   url: finops/smsapi-finops.yml
+- url: https://www.smsapi.com/blog/feed
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

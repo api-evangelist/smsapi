@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/smsapi-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: OAuth 2.0 bearer token generated in the SMSAPI customer panel (API Tokens).
+  sources:
+  - openapi/smsapi-openapi.yml
