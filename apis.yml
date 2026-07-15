@@ -248,6 +248,8 @@ apis:
   description: Create and manage trackable cut.li short links via /short_urls and
     retrieve per-link click statistics for measuring campaign engagement.
 common:
+- type: AgenticAccess
+  url: agentic-access/smsapi-agentic-access.yml
 - type: TrustCenter
   url: security/smsapi-trust-center.yml
 - type: DomainSecurity
