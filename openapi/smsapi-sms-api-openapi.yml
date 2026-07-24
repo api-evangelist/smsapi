@@ -1,0 +1,93 @@
+openapi: 3.0.1
+info:
+  title: SMSAPI REST 2FA SMS API
+  description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
+  termsOfService: https://www.smsapi.com/en/terms
+  contact:
+    name: SMSAPI Support
+    url: https://www.smsapi.com/docs/
+    email: bok@smsapi.pl
+  version: '1.0'
+servers:
+- url: https://api.smsapi.com
+  description: Global endpoint (com)
+- url: https://api.smsapi.eu
+  description: European endpoint (eu)
+security:
+- bearerAuth: []
+tags:
+- name: SMS
+paths:
+  /sms.do:
+    post:
+      operationId: sendSms
+      tags:
+      - SMS
+      summary: Send an SMS message.
+      description: Send single, bulk, scheduled, or templated text messages. Provide format=json to receive a JSON response. Supports personalization, flash messages, opt-out links, and cut.li short URLs.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SendSmsRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendMessageResponse'
+components:
+  schemas:
+    SendSmsRequest:
+      type: object
+      properties:
+        to:
+          type: string
+          description: Comma-separated recipient MSISDN(s).
+        message:
+          type: string
+        from:
+          type: string
+          description: Registered sender name.
+        date:
+          type: string
+          description: Unix timestamp or ISO date for scheduled delivery.
+        encoding:
+          type: string
+        flash:
+          type: integer
+        template:
+          type: string
+        fast:
+          type: integer
+        format:
+          type: string
+          default: json
+      required:
+      - to
+      - message
+    SendMessageResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+        list:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              points:
+                type: number
+              number:
+                type: string
+              status:
+                type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 bearer token generated in the SMSAPI customer panel (API Tokens).

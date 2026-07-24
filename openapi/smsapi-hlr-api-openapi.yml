@@ -1,0 +1,70 @@
+openapi: 3.0.1
+info:
+  title: SMSAPI REST 2FA HLR API
+  description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
+  termsOfService: https://www.smsapi.com/en/terms
+  contact:
+    name: SMSAPI Support
+    url: https://www.smsapi.com/docs/
+    email: bok@smsapi.pl
+  version: '1.0'
+servers:
+- url: https://api.smsapi.com
+  description: Global endpoint (com)
+- url: https://api.smsapi.eu
+  description: European endpoint (eu)
+security:
+- bearerAuth: []
+tags:
+- name: HLR
+paths:
+  /hlr.do:
+    post:
+      operationId: hlrLookup
+      tags:
+      - HLR
+      summary: Perform an HLR lookup.
+      description: Validate a phone number and resolve carrier, portability, and reachability information.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                number:
+                  type: string
+                idx:
+                  type: string
+                format:
+                  type: string
+                  default: json
+              required:
+              - number
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HlrResult'
+components:
+  schemas:
+    HlrResult:
+      type: object
+      properties:
+        number:
+          type: string
+        status:
+          type: string
+        ported:
+          type: boolean
+        network:
+          type: string
+        country:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 bearer token generated in the SMSAPI customer panel (API Tokens).

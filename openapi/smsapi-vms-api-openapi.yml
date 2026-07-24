@@ -1,0 +1,85 @@
+openapi: 3.0.1
+info:
+  title: SMSAPI REST 2FA VMS API
+  description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
+  termsOfService: https://www.smsapi.com/en/terms
+  contact:
+    name: SMSAPI Support
+    url: https://www.smsapi.com/docs/
+    email: bok@smsapi.pl
+  version: '1.0'
+servers:
+- url: https://api.smsapi.com
+  description: Global endpoint (com)
+- url: https://api.smsapi.eu
+  description: European endpoint (eu)
+security:
+- bearerAuth: []
+tags:
+- name: VMS
+paths:
+  /vms.do:
+    post:
+      operationId: sendVms
+      tags:
+      - VMS
+      summary: Send a voice message (VMS).
+      description: Deliver a voice message generated from text-to-speech (tts) or from an uploaded audio file, with optional scheduling.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SendVmsRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendMessageResponse'
+components:
+  schemas:
+    SendMessageResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+        list:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              points:
+                type: number
+              number:
+                type: string
+              status:
+                type: string
+    SendVmsRequest:
+      type: object
+      properties:
+        to:
+          type: string
+        tts:
+          type: string
+          description: Text to be read out via text-to-speech.
+        file:
+          type: string
+          description: URL or reference to an uploaded audio file.
+        tts_lector:
+          type: string
+        date:
+          type: string
+        format:
+          type: string
+          default: json
+      required:
+      - to
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 bearer token generated in the SMSAPI customer panel (API Tokens).

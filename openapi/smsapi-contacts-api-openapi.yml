@@ -1,0 +1,251 @@
+openapi: 3.0.1
+info:
+  title: SMSAPI REST 2FA Contacts API
+  description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
+  termsOfService: https://www.smsapi.com/en/terms
+  contact:
+    name: SMSAPI Support
+    url: https://www.smsapi.com/docs/
+    email: bok@smsapi.pl
+  version: '1.0'
+servers:
+- url: https://api.smsapi.com
+  description: Global endpoint (com)
+- url: https://api.smsapi.eu
+  description: European endpoint (eu)
+security:
+- bearerAuth: []
+tags:
+- name: Contacts
+paths:
+  /contacts:
+    get:
+      operationId: listContacts
+      tags:
+      - Contacts
+      summary: List contacts.
+      parameters:
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: phone_number
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactCollection'
+    post:
+      operationId: createContact
+      tags:
+      - Contacts
+      summary: Create a contact.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactInput'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+  /contacts/{contactId}:
+    get:
+      operationId: getContact
+      tags:
+      - Contacts
+      summary: Get a contact.
+      parameters:
+      - $ref: '#/components/parameters/ContactId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+    put:
+      operationId: updateContact
+      tags:
+      - Contacts
+      summary: Update a contact.
+      parameters:
+      - $ref: '#/components/parameters/ContactId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+    delete:
+      operationId: deleteContact
+      tags:
+      - Contacts
+      summary: Delete a contact.
+      parameters:
+      - $ref: '#/components/parameters/ContactId'
+      responses:
+        '204':
+          description: No Content
+  /contacts/groups:
+    get:
+      operationId: listContactGroups
+      tags:
+      - Contacts
+      summary: List contact groups.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupCollection'
+    post:
+      operationId: createContactGroup
+      tags:
+      - Contacts
+      summary: Create a contact group.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupInput'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+  /contacts/{contactId}/groups/{groupId}:
+    put:
+      operationId: assignContactToGroup
+      tags:
+      - Contacts
+      summary: Assign a contact to a group.
+      parameters:
+      - $ref: '#/components/parameters/ContactId'
+      - $ref: '#/components/parameters/GroupId'
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: removeContactFromGroup
+      tags:
+      - Contacts
+      summary: Remove a contact from a group.
+      parameters:
+      - $ref: '#/components/parameters/ContactId'
+      - $ref: '#/components/parameters/GroupId'
+      responses:
+        '204':
+          description: No Content
+components:
+  schemas:
+    ContactInput:
+      type: object
+      properties:
+        phone_number:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+      required:
+      - phone_number
+    GroupCollection:
+      type: object
+      properties:
+        size:
+          type: integer
+        collection:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+    GroupInput:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+      required:
+      - name
+    ContactCollection:
+      type: object
+      properties:
+        size:
+          type: integer
+        collection:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+    Group:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        contacts_count:
+          type: integer
+    Contact:
+      type: object
+      properties:
+        id:
+          type: string
+        phone_number:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        source:
+          type: string
+        date_created:
+          type: string
+  parameters:
+    GroupId:
+      name: groupId
+      in: path
+      required: true
+      schema:
+        type: string
+    ContactId:
+      name: contactId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 bearer token generated in the SMSAPI customer panel (API Tokens).

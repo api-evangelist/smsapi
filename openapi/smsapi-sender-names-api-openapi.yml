@@ -1,0 +1,122 @@
+openapi: 3.0.1
+info:
+  title: SMSAPI REST 2FA Sender Names API
+  description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
+  termsOfService: https://www.smsapi.com/en/terms
+  contact:
+    name: SMSAPI Support
+    url: https://www.smsapi.com/docs/
+    email: bok@smsapi.pl
+  version: '1.0'
+servers:
+- url: https://api.smsapi.com
+  description: Global endpoint (com)
+- url: https://api.smsapi.eu
+  description: European endpoint (eu)
+security:
+- bearerAuth: []
+tags:
+- name: Sender Names
+paths:
+  /sendernames:
+    get:
+      operationId: listSenderNames
+      tags:
+      - Sender Names
+      summary: List sender names.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SenderNameCollection'
+    post:
+      operationId: createSenderName
+      tags:
+      - Sender Names
+      summary: Register a new sender name.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SenderNameInput'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SenderName'
+  /sendernames/{sender}:
+    get:
+      operationId: getSenderName
+      tags:
+      - Sender Names
+      summary: Get a sender name.
+      parameters:
+      - $ref: '#/components/parameters/Sender'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SenderName'
+    delete:
+      operationId: deleteSenderName
+      tags:
+      - Sender Names
+      summary: Delete a sender name.
+      parameters:
+      - $ref: '#/components/parameters/Sender'
+      responses:
+        '204':
+          description: No Content
+  /sendernames/{sender}/default:
+    put:
+      operationId: setDefaultSenderName
+      tags:
+      - Sender Names
+      summary: Set a sender name as default.
+      parameters:
+      - $ref: '#/components/parameters/Sender'
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    SenderNameInput:
+      type: object
+      properties:
+        sender:
+          type: string
+      required:
+      - sender
+    SenderNameCollection:
+      type: array
+      items:
+        $ref: '#/components/schemas/SenderName'
+    SenderName:
+      type: object
+      properties:
+        sender:
+          type: string
+        status:
+          type: string
+          description: Sender name status (e.g. ACTIVE, INACTIVE).
+        is_default:
+          type: boolean
+  parameters:
+    Sender:
+      name: sender
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 bearer token generated in the SMSAPI customer panel (API Tokens).

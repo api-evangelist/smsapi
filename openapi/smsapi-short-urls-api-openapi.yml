@@ -1,0 +1,89 @@
+openapi: 3.0.1
+info:
+  title: SMSAPI REST 2FA Short URLs API
+  description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
+  termsOfService: https://www.smsapi.com/en/terms
+  contact:
+    name: SMSAPI Support
+    url: https://www.smsapi.com/docs/
+    email: bok@smsapi.pl
+  version: '1.0'
+servers:
+- url: https://api.smsapi.com
+  description: Global endpoint (com)
+- url: https://api.smsapi.eu
+  description: European endpoint (eu)
+security:
+- bearerAuth: []
+tags:
+- name: Short URLs
+paths:
+  /short_urls/links:
+    get:
+      operationId: listShortUrls
+      tags:
+      - Short URLs
+      summary: List cut.li short links.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShortUrlCollection'
+    post:
+      operationId: createShortUrl
+      tags:
+      - Short URLs
+      summary: Create a cut.li short link.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShortUrlInput'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShortUrl'
+components:
+  schemas:
+    ShortUrlInput:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+      required:
+      - url
+    ShortUrl:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        short_url:
+          type: string
+        clicks:
+          type: integer
+    ShortUrlCollection:
+      type: object
+      properties:
+        size:
+          type: integer
+        collection:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShortUrl'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 bearer token generated in the SMSAPI customer panel (API Tokens).

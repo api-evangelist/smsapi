@@ -1,0 +1,83 @@
+openapi: 3.0.1
+info:
+  title: SMSAPI REST 2FA MMS API
+  description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
+  termsOfService: https://www.smsapi.com/en/terms
+  contact:
+    name: SMSAPI Support
+    url: https://www.smsapi.com/docs/
+    email: bok@smsapi.pl
+  version: '1.0'
+servers:
+- url: https://api.smsapi.com
+  description: Global endpoint (com)
+- url: https://api.smsapi.eu
+  description: European endpoint (eu)
+security:
+- bearerAuth: []
+tags:
+- name: MMS
+paths:
+  /mms.do:
+    post:
+      operationId: sendMms
+      tags:
+      - MMS
+      summary: Send an MMS message.
+      description: Send a multimedia message with SMIL/image content to one or many recipients, with optional scheduling.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SendMmsRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendMessageResponse'
+components:
+  schemas:
+    SendMessageResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+        list:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              points:
+                type: number
+              number:
+                type: string
+              status:
+                type: string
+    SendMmsRequest:
+      type: object
+      properties:
+        to:
+          type: string
+        subject:
+          type: string
+        smil:
+          type: string
+          description: SMIL document describing the multimedia content.
+        date:
+          type: string
+        format:
+          type: string
+          default: json
+      required:
+      - to
+      - smil
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 bearer token generated in the SMSAPI customer panel (API Tokens).
