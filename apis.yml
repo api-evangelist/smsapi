@@ -7,7 +7,20 @@ description: SMSAPI is a European bulk business-messaging provider headquartered
   messaging, email marketing, two-factor authentication, contact and group management,
   sender field registration, subuser administration, and account/profile operations,
   authenticated with OAuth 2.0 bearer tokens over api.smsapi.com and api.smsapi.eu.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/smsapi.png
 tags:
 - Messaging
 - SMS
@@ -21,232 +34,424 @@ created: '2026-07-01'
 modified: '2026-07-01'
 specificationVersion: '0.19'
 apis:
-- aid: smsapi:smsapi-sms-api
-  name: SMSAPI SMS API
-  tags:
-  - SMS
-  - Messaging
-  - Bulk Messaging
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: smsapi:smsapi-2fa-api
+  name: SMSAPI 2FA API
+  description: The 2FA API from SMSAPI — 2 operation(s) for 2fa.
   humanURL: https://www.smsapi.com/docs/#sms-api
   baseURL: https://api.smsapi.com/sms.do
-  properties:
-  - url: https://www.smsapi.com/docs/#sms-api
-    type: Documentation
-  - url: https://www.smsapi.com/docs/
-    type: APIReference
-  - url: openapi/smsapi-openapi.yml
-    type: OpenAPI
-  - url: collections/smsapi.postman_collection.json
-    type: PostmanCollection
-  - url: collections/smsapi.opencollection.json
-    type: OpenCollection
-  description: Send single, bulk, scheduled, and templated text messages via POST
-    to /sms.do, with sender field, flash, personalization, opt-out links, and cut.li
-    short-URL support, plus delivery-report callbacks.
-- aid: smsapi:smsapi-mms-api
-  name: SMSAPI MMS API
-  tags:
-  - MMS
-  - Messaging
-  - Multimedia
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.smsapi.com/docs/#mms-api
-  baseURL: https://api.smsapi.com/mms.do
-  properties:
-  - url: https://www.smsapi.com/docs/#mms-api
-    type: Documentation
-  - url: openapi/smsapi-openapi.yml
-    type: OpenAPI
-  - url: collections/smsapi.postman_collection.json
-    type: PostmanCollection
-  - url: collections/smsapi.opencollection.json
-    type: OpenCollection
-  description: Send multimedia messages (SMIL/image content) to one or many recipients
-    via POST to /mms.do, with scheduling and delivery reporting.
-- aid: smsapi:smsapi-vms-api
-  name: SMSAPI VMS Voice API
-  tags:
-  - Voice
-  - VMS
-  - Text to Speech
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.smsapi.com/docs/#vms-api
-  baseURL: https://api.smsapi.com/vms.do
-  properties:
-  - url: https://www.smsapi.com/docs/#vms-api
-    type: Documentation
-  - url: openapi/smsapi-openapi.yml
-    type: OpenAPI
-  - url: collections/smsapi.postman_collection.json
-    type: PostmanCollection
-  - url: collections/smsapi.opencollection.json
-    type: OpenCollection
-  description: Deliver voice messages (VMS) from text-to-speech or an uploaded audio
-    file via POST to /vms.do, with scheduling and call-result callbacks.
-- aid: smsapi:smsapi-contacts-api
-  name: SMSAPI Contacts API
-  tags:
-  - Contacts
-  - Groups
-  - Address Book
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.smsapi.com/docs/#contacts-api
-  baseURL: https://api.smsapi.com/contacts
-  properties:
-  - url: https://www.smsapi.com/docs/#contacts-api
-    type: Documentation
-  - url: openapi/smsapi-openapi.yml
-    type: OpenAPI
-  - url: collections/smsapi.postman_collection.json
-    type: PostmanCollection
-  - url: collections/smsapi.opencollection.json
-    type: OpenCollection
-  description: Full CRUD over the contact address book, contact groups, and custom
-    fields via /contacts, /contacts/{id}/groups, and /contacts/groups, for building
-    and segmenting recipient lists.
-- aid: smsapi:smsapi-sender-names-api
-  name: SMSAPI Sender Names API
-  tags:
-  - Sender Names
-  - Sender Fields
-  - Branding
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.smsapi.com/docs/#sender-names-api
-  baseURL: https://api.smsapi.com/sendernames
-  properties:
-  - url: https://www.smsapi.com/docs/#sender-names-api
-    type: Documentation
-  - url: openapi/smsapi-openapi.yml
-    type: OpenAPI
-  - url: collections/smsapi.postman_collection.json
-    type: PostmanCollection
-  - url: collections/smsapi.opencollection.json
-    type: OpenCollection
-  description: List, register, inspect, and remove alphanumeric sender fields (sender
-    names) via /sendernames, including default sender selection for outbound SMS.
-- aid: smsapi:smsapi-2fa-api
-  name: SMSAPI 2FA Authentication API
   tags:
   - 2FA
-  - Authentication
-  - Verification
-  - OTP
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.smsapi.com/docs/#2fa-api
-  baseURL: https://api.smsapi.com/authenticator
   properties:
-  - url: https://www.smsapi.com/docs/#2fa-api
-    type: Documentation
-  - url: openapi/smsapi-openapi.yml
-    type: OpenAPI
-  - url: collections/smsapi.postman_collection.json
-    type: PostmanCollection
-  - url: collections/smsapi.opencollection.json
-    type: OpenCollection
-  description: Generate and validate one-time passcodes for two-factor authentication
-    via /authenticator/send_code and /authenticator/check_code, delivered over SMS
-    or voice.
-- aid: smsapi:smsapi-subusers-api
-  name: SMSAPI Subusers API
-  tags:
-  - Subusers
-  - Account Management
-  - Administration
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.smsapi.com/docs/#subusers-api
-  baseURL: https://api.smsapi.com/subusers
-  properties:
-  - url: https://www.smsapi.com/docs/#subusers-api
-    type: Documentation
-  - url: openapi/smsapi-openapi.yml
-    type: OpenAPI
-  - url: collections/smsapi.postman_collection.json
-    type: PostmanCollection
-  - url: collections/smsapi.opencollection.json
-    type: OpenCollection
-  description: Create and administer subaccounts (subusers) via /subusers, including
-    credit allocation, points limits, and per-subuser permissions for delegated sending.
-- aid: smsapi:smsapi-profile-api
-  name: SMSAPI Profile and Account API
-  tags:
-  - Profile
-  - Account
-  - Balance
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.smsapi.com/docs/#profile-api
-  baseURL: https://api.smsapi.com/profile
-  properties:
-  - url: https://www.smsapi.com/docs/#profile-api
-    type: Documentation
-  - url: openapi/smsapi-openapi.yml
-    type: OpenAPI
-  - url: collections/smsapi.postman_collection.json
-    type: PostmanCollection
-  - url: collections/smsapi.opencollection.json
-    type: OpenCollection
-  description: Retrieve account profile details and current credit balance (points)
-    via GET /profile for monitoring available funds before sending.
-- aid: smsapi:smsapi-hlr-api
-  name: SMSAPI HLR Lookup API
-  tags:
-  - HLR
-  - Number Validation
-  - Lookup
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.smsapi.com/docs/#hlr-api
-  baseURL: https://api.smsapi.com/hlr.do
-  properties:
-  - url: https://www.smsapi.com/docs/#hlr-api
-    type: Documentation
-  - url: openapi/smsapi-openapi.yml
-    type: OpenAPI
-  - url: collections/smsapi.postman_collection.json
-    type: PostmanCollection
-  - url: collections/smsapi.opencollection.json
-    type: OpenCollection
-  description: Validate phone numbers and resolve carrier, portability, and reachability
-    information via HLR lookups on /hlr.do, with results returned inline or via callback.
+  - type: OpenAPI
+    url: openapi/smsapi-2fa-api-openapi.yml
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sms-api
+  - type: APIReference
+    url: https://www.smsapi.com/docs/
+  - type: PostmanCollection
+    url: collections/smsapi.postman_collection.json
+  - type: OpenCollection
+    url: collections/smsapi.opencollection.json
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#mms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#vms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#contacts-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sender-names-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#2fa-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#subusers-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#profile-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#hlr-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#blacklist-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#short-urls-api
 - aid: smsapi:smsapi-blacklist-api
   name: SMSAPI Blacklist API
+  description: The Blacklist API from SMSAPI — 2 operation(s) for blacklist.
+  humanURL: https://www.smsapi.com/docs/#sms-api
+  baseURL: https://api.smsapi.com/sms.do
   tags:
   - Blacklist
-  - Opt-Out
-  - Compliance
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.smsapi.com/docs/#blacklist-api
-  baseURL: https://api.smsapi.com/blacklist/phone_numbers
   properties:
-  - url: https://www.smsapi.com/docs/#blacklist-api
-    type: Documentation
-  - url: openapi/smsapi-openapi.yml
-    type: OpenAPI
-  - url: collections/smsapi.postman_collection.json
-    type: PostmanCollection
-  - url: collections/smsapi.opencollection.json
-    type: OpenCollection
-  description: Manage opted-out recipients via /blacklist/phone_numbers so blacklisted
-    numbers are automatically excluded from outbound campaigns for compliance.
+  - type: OpenAPI
+    url: openapi/smsapi-blacklist-api-openapi.yml
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sms-api
+  - type: APIReference
+    url: https://www.smsapi.com/docs/
+  - type: PostmanCollection
+    url: collections/smsapi.postman_collection.json
+  - type: OpenCollection
+    url: collections/smsapi.opencollection.json
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#mms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#vms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#contacts-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sender-names-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#2fa-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#subusers-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#profile-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#hlr-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#blacklist-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#short-urls-api
+- aid: smsapi:smsapi-contacts-api
+  name: SMSAPI Contacts API
+  description: The Contacts API from SMSAPI — 4 operation(s) for contacts.
+  humanURL: https://www.smsapi.com/docs/#sms-api
+  baseURL: https://api.smsapi.com/sms.do
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/smsapi-contacts-api-openapi.yml
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sms-api
+  - type: APIReference
+    url: https://www.smsapi.com/docs/
+  - type: PostmanCollection
+    url: collections/smsapi.postman_collection.json
+  - type: OpenCollection
+    url: collections/smsapi.opencollection.json
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#mms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#vms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#contacts-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sender-names-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#2fa-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#subusers-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#profile-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#hlr-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#blacklist-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#short-urls-api
+- aid: smsapi:smsapi-hlr-api
+  name: SMSAPI HLR API
+  description: The HLR API from SMSAPI — 1 operation(s) for hlr.
+  humanURL: https://www.smsapi.com/docs/#sms-api
+  baseURL: https://api.smsapi.com/sms.do
+  tags:
+  - HLR
+  properties:
+  - type: OpenAPI
+    url: openapi/smsapi-hlr-api-openapi.yml
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sms-api
+  - type: APIReference
+    url: https://www.smsapi.com/docs/
+  - type: PostmanCollection
+    url: collections/smsapi.postman_collection.json
+  - type: OpenCollection
+    url: collections/smsapi.opencollection.json
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#mms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#vms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#contacts-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sender-names-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#2fa-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#subusers-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#profile-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#hlr-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#blacklist-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#short-urls-api
+- aid: smsapi:smsapi-mms-api
+  name: SMSAPI MMS API
+  description: The MMS API from SMSAPI — 1 operation(s) for mms.
+  humanURL: https://www.smsapi.com/docs/#sms-api
+  baseURL: https://api.smsapi.com/sms.do
+  tags:
+  - MMS
+  properties:
+  - type: OpenAPI
+    url: openapi/smsapi-mms-api-openapi.yml
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sms-api
+  - type: APIReference
+    url: https://www.smsapi.com/docs/
+  - type: PostmanCollection
+    url: collections/smsapi.postman_collection.json
+  - type: OpenCollection
+    url: collections/smsapi.opencollection.json
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#mms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#vms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#contacts-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sender-names-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#2fa-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#subusers-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#profile-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#hlr-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#blacklist-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#short-urls-api
+- aid: smsapi:smsapi-profile-api
+  name: SMSAPI Profile API
+  description: The Profile API from SMSAPI — 1 operation(s) for profile.
+  humanURL: https://www.smsapi.com/docs/#sms-api
+  baseURL: https://api.smsapi.com/sms.do
+  tags:
+  - Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/smsapi-profile-api-openapi.yml
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sms-api
+  - type: APIReference
+    url: https://www.smsapi.com/docs/
+  - type: PostmanCollection
+    url: collections/smsapi.postman_collection.json
+  - type: OpenCollection
+    url: collections/smsapi.opencollection.json
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#mms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#vms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#contacts-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sender-names-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#2fa-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#subusers-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#profile-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#hlr-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#blacklist-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#short-urls-api
+- aid: smsapi:smsapi-sender-names-api
+  name: SMSAPI Sender Names API
+  description: The Sender Names API from SMSAPI — 3 operation(s) for sender names.
+  humanURL: https://www.smsapi.com/docs/#sms-api
+  baseURL: https://api.smsapi.com/sms.do
+  tags:
+  - Sender Names
+  properties:
+  - type: OpenAPI
+    url: openapi/smsapi-sender-names-api-openapi.yml
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sms-api
+  - type: APIReference
+    url: https://www.smsapi.com/docs/
+  - type: PostmanCollection
+    url: collections/smsapi.postman_collection.json
+  - type: OpenCollection
+    url: collections/smsapi.opencollection.json
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#mms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#vms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#contacts-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sender-names-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#2fa-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#subusers-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#profile-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#hlr-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#blacklist-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#short-urls-api
 - aid: smsapi:smsapi-short-urls-api
   name: SMSAPI Short URLs API
+  description: The Short URLs API from SMSAPI — 1 operation(s) for short urls.
+  humanURL: https://www.smsapi.com/docs/#sms-api
+  baseURL: https://api.smsapi.com/sms.do
   tags:
   - Short URLs
-  - cut.li
-  - Link Tracking
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.smsapi.com/docs/#short-urls-api
-  baseURL: https://api.smsapi.com/short_urls
   properties:
-  - url: https://www.smsapi.com/docs/#short-urls-api
-    type: Documentation
-  - url: openapi/smsapi-openapi.yml
-    type: OpenAPI
-  - url: collections/smsapi.postman_collection.json
-    type: PostmanCollection
-  - url: collections/smsapi.opencollection.json
-    type: OpenCollection
-  description: Create and manage trackable cut.li short links via /short_urls and
-    retrieve per-link click statistics for measuring campaign engagement.
+  - type: OpenAPI
+    url: openapi/smsapi-short-urls-api-openapi.yml
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sms-api
+  - type: APIReference
+    url: https://www.smsapi.com/docs/
+  - type: PostmanCollection
+    url: collections/smsapi.postman_collection.json
+  - type: OpenCollection
+    url: collections/smsapi.opencollection.json
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#mms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#vms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#contacts-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sender-names-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#2fa-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#subusers-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#profile-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#hlr-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#blacklist-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#short-urls-api
+- aid: smsapi:smsapi-sms-api
+  name: SMSAPI SMS API
+  description: The SMS API from SMSAPI — 1 operation(s) for sms.
+  humanURL: https://www.smsapi.com/docs/#sms-api
+  baseURL: https://api.smsapi.com/sms.do
+  tags:
+  - SMS
+  properties:
+  - type: OpenAPI
+    url: openapi/smsapi-sms-api-openapi.yml
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sms-api
+  - type: APIReference
+    url: https://www.smsapi.com/docs/
+  - type: PostmanCollection
+    url: collections/smsapi.postman_collection.json
+  - type: OpenCollection
+    url: collections/smsapi.opencollection.json
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#mms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#vms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#contacts-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sender-names-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#2fa-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#subusers-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#profile-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#hlr-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#blacklist-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#short-urls-api
+- aid: smsapi:smsapi-subusers-api
+  name: SMSAPI Subusers API
+  description: The Subusers API from SMSAPI — 2 operation(s) for subusers.
+  humanURL: https://www.smsapi.com/docs/#sms-api
+  baseURL: https://api.smsapi.com/sms.do
+  tags:
+  - Subusers
+  properties:
+  - type: OpenAPI
+    url: openapi/smsapi-subusers-api-openapi.yml
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sms-api
+  - type: APIReference
+    url: https://www.smsapi.com/docs/
+  - type: PostmanCollection
+    url: collections/smsapi.postman_collection.json
+  - type: OpenCollection
+    url: collections/smsapi.opencollection.json
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#mms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#vms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#contacts-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sender-names-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#2fa-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#subusers-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#profile-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#hlr-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#blacklist-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#short-urls-api
+- aid: smsapi:smsapi-vms-api
+  name: SMSAPI VMS API
+  description: The VMS API from SMSAPI — 1 operation(s) for vms.
+  humanURL: https://www.smsapi.com/docs/#sms-api
+  baseURL: https://api.smsapi.com/sms.do
+  tags:
+  - VMS
+  properties:
+  - type: OpenAPI
+    url: openapi/smsapi-vms-api-openapi.yml
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sms-api
+  - type: APIReference
+    url: https://www.smsapi.com/docs/
+  - type: PostmanCollection
+    url: collections/smsapi.postman_collection.json
+  - type: OpenCollection
+    url: collections/smsapi.opencollection.json
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#mms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#vms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#contacts-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sender-names-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#2fa-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#subusers-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#profile-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#hlr-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#blacklist-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#short-urls-api
 common:
 - type: AgenticAccess
   url: agentic-access/smsapi-agentic-access.yml
