@@ -1,0 +1,34 @@
+{
+  "provider": "smsapi",
+  "sources": [
+    "smsapi-2fa-api-openapi.yml",
+    "smsapi-blacklist-api-openapi.yml",
+    "smsapi-contacts-api-openapi.yml",
+    "smsapi-hlr-api-openapi.yml",
+    "smsapi-mms-api-openapi.yml",
+    "smsapi-profile-api-openapi.yml",
+    "smsapi-sender-names-api-openapi.yml",
+    "smsapi-short-urls-api-openapi.yml",
+    "smsapi-sms-api-openapi.yml",
+    "smsapi-subusers-api-openapi.yml",
+    "smsapi-vms-api-openapi.yml"
+  ],
+  "outputs": [
+    "smsapi-2fa-api-openapi.yml",
+    "smsapi-blacklist-api-openapi.yml",
+    "smsapi-contacts-api-openapi.yml",
+    "smsapi-hlr-api-openapi.yml",
+    "smsapi-mms-api-openapi.yml",
+    "smsapi-profile-api-openapi.yml",
+    "smsapi-sender-names-api-openapi.yml",
+    "smsapi-short-urls-api-openapi.yml",
+    "smsapi-sms-api-openapi.yml",
+    "smsapi-subusers-api-openapi.yml",
+    "smsapi-vms-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
