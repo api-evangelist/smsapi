@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SMSAPI REST 2FA Subusers API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subusers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List subusers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.smsapi.com/subusers"
+          },
+          "docs": "List subusers."
+        },
+        {
+          "info": {
+            "name": "Create a subuser.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/subusers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a subuser."
+        },
+        {
+          "info": {
+            "name": "Get a subuser.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.smsapi.com/subusers/:subuserId",
+            "params": [
+              {
+                "name": "subuserId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a subuser."
+        },
+        {
+          "info": {
+            "name": "Update a subuser.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.smsapi.com/subusers/:subuserId",
+            "params": [
+              {
+                "name": "subuserId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a subuser."
+        },
+        {
+          "info": {
+            "name": "Delete a subuser.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.smsapi.com/subusers/:subuserId",
+            "params": [
+              {
+                "name": "subuserId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a subuser."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

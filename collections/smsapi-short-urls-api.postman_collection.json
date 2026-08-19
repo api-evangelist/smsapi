@@ -1,0 +1,216 @@
+{
+  "item": [
+    {
+      "id": "e4364e10-072a-4e1e-8fb3-77c04f371fc5",
+      "name": "Short URLs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34369706-a71e-4e84-ae85-f80a26b8e7a2",
+          "name": "List cut.li short links.",
+          "request": {
+            "name": "List cut.li short links.",
+            "description": {},
+            "url": {
+              "path": [
+                "short_urls",
+                "links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "efd2b605-96bf-4f62-9367-f2521171543b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "short_urls",
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"size\": 9019,\n  \"collection\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"url\": \"string\",\n      \"short_url\": \"string\",\n      \"clicks\": 8825\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"url\": \"string\",\n      \"short_url\": \"string\",\n      \"clicks\": 1369\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c66dd51-77e9-48eb-a764-3359963971fe",
+          "name": "Create a cut.li short link.",
+          "request": {
+            "name": "Create a cut.li short link.",
+            "description": {},
+            "url": {
+              "path": [
+                "short_urls",
+                "links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "877e747a-f404-486f-8803-691b8efe5b2c",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "short_urls",
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"url\": \"string\",\n  \"short_url\": \"string\",\n  \"clicks\": 9090\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.smsapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "60dc2f7b-5f10-409b-92b6-629576ce51d3",
+    "name": "SMSAPI REST 2FA Short URLs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.\n\nContact Support:\n Name: SMSAPI Support\n Email: bok@smsapi.pl",
+      "type": "text/plain"
+    }
+  }
+}

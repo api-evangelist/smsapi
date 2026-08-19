@@ -1,0 +1,192 @@
+{
+  "item": [
+    {
+      "id": "24fa8c64-045e-4aac-9bd7-30dc9ff99cc5",
+      "name": "MMS",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b8a24b89-bad1-4fdf-b305-78147647aa2c",
+          "name": "Send an MMS message.",
+          "request": {
+            "name": "Send an MMS message.",
+            "description": {
+              "content": "Send a multimedia message with SMIL/image content to one or many recipients, with optional scheduling.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mms.do"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "smil",
+                  "value": "<string>",
+                  "description": "(Required) SMIL document describing the multimedia content."
+                },
+                {
+                  "disabled": false,
+                  "key": "subject",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1ef6cc8b-aa39-4ac0-ac2c-020451ad5ae0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mms.do"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) SMIL document describing the multimedia content.",
+                        "type": "text/plain"
+                      },
+                      "key": "smil",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "subject",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2217,\n  \"list\": [\n    {\n      \"id\": \"string\",\n      \"points\": 2039.5203175495635,\n      \"number\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"points\": 5953.437254804412,\n      \"number\": \"string\",\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.smsapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "35250fcb-fb48-43ed-bc40-53f9b53ce3d8",
+    "name": "SMSAPI REST 2FA MMS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.\n\nContact Support:\n Name: SMSAPI Support\n Email: bok@smsapi.pl",
+      "type": "text/plain"
+    }
+  }
+}

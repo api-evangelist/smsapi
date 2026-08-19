@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SMSAPI REST 2FA Sender Names API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sender Names",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List sender names.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.smsapi.com/sendernames"
+          },
+          "docs": "List sender names."
+        },
+        {
+          "info": {
+            "name": "Register a new sender name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/sendernames",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Register a new sender name."
+        },
+        {
+          "info": {
+            "name": "Get a sender name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.smsapi.com/sendernames/:sender",
+            "params": [
+              {
+                "name": "sender",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a sender name."
+        },
+        {
+          "info": {
+            "name": "Delete a sender name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.smsapi.com/sendernames/:sender",
+            "params": [
+              {
+                "name": "sender",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a sender name."
+        },
+        {
+          "info": {
+            "name": "Set a sender name as default.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.smsapi.com/sendernames/:sender/default",
+            "params": [
+              {
+                "name": "sender",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Set a sender name as default."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

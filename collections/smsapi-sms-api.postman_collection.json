@@ -1,0 +1,242 @@
+{
+  "item": [
+    {
+      "id": "a54ee4f0-b131-4d00-96b9-7708da9450fb",
+      "name": "SMS",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5e868996-0b7e-4478-b967-402baed29476",
+          "name": "Send an SMS message.",
+          "request": {
+            "name": "Send an SMS message.",
+            "description": {
+              "content": "Send single, bulk, scheduled, or templated text messages. Provide format=json to receive a JSON response. Supports personalization, flash messages, opt-out links, and cut.li short URLs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sms.do"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated recipient MSISDN(s)."
+                },
+                {
+                  "disabled": false,
+                  "key": "message",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Registered sender name."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Unix timestamp or ISO date for scheduled delivery."
+                },
+                {
+                  "disabled": false,
+                  "key": "encoding",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flash",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "template",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fast",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "62daa5af-eb8f-438d-be44-754219a1bcab",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sms.do"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Comma-separated recipient MSISDN(s).",
+                        "type": "text/plain"
+                      },
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "message",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Registered sender name.",
+                        "type": "text/plain"
+                      },
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Unix timestamp or ISO date for scheduled delivery.",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "encoding",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "flash",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "template",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "fast",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3741,\n  \"list\": [\n    {\n      \"id\": \"string\",\n      \"points\": 5489.336713093302,\n      \"number\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"points\": 8183.38986204182,\n      \"number\": \"string\",\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.smsapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4cc8bf8e-e1d1-4410-86eb-22af3b3b2d0d",
+    "name": "SMSAPI REST 2FA SMS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.\n\nContact Support:\n Name: SMSAPI Support\n Email: bok@smsapi.pl",
+      "type": "text/plain"
+    }
+  }
+}

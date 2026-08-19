@@ -1,0 +1,240 @@
+{
+  "item": [
+    {
+      "id": "90d67e32-70ad-4203-b699-6b300deab6b3",
+      "name": "2FA",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3eed6f51-afd3-498f-9432-6f91ef8f5e88",
+          "name": "Send a one-time 2FA code.",
+          "request": {
+            "name": "Send a one-time 2FA code.",
+            "description": {
+              "content": "Generate and deliver a one-time passcode over SMS or voice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authenticator",
+                "send_code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipient\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"from\": \"<string>\",\n  \"message_template\": \"<string>\",\n  \"expiry\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "620f1f3c-dbbd-4c00-8e76-6cc9aa09737c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authenticator",
+                    "send_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recipient\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"from\": \"<string>\",\n  \"message_template\": \"<string>\",\n  \"expiry\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"recipient\": \"string\",\n  \"channel\": \"string\",\n  \"expires_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2600186-bc86-4a92-a26c-ce31a1b994f6",
+          "name": "Validate a one-time 2FA code.",
+          "request": {
+            "name": "Validate a one-time 2FA code.",
+            "description": {},
+            "url": {
+              "path": [
+                "authenticator",
+                "check_code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "369a2f3b-3944-48ef-8d9c-278c1d3ea880",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authenticator",
+                    "check_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"valid\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.smsapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5a84b689-0eb0-4458-8574-6f3d0053caac",
+    "name": "SMSAPI REST 2FA API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.\n\nContact Support:\n Name: SMSAPI Support\n Email: bok@smsapi.pl",
+      "type": "text/plain"
+    }
+  }
+}

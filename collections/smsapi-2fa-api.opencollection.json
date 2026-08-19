@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SMSAPI REST 2FA API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "2FA",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send a one-time 2FA code.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/authenticator/send_code",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate and deliver a one-time passcode over SMS or voice."
+        },
+        {
+          "info": {
+            "name": "Validate a one-time 2FA code.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/authenticator/check_code",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate a one-time 2FA code."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

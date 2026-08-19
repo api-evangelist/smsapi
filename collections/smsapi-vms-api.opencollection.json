@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SMSAPI REST 2FA VMS API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VMS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send a voice message (VMS).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/vms.do",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Deliver a voice message generated from text-to-speech (tts) or from an uploaded audio file, with optional scheduling."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

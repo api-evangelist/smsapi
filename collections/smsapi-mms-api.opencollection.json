@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SMSAPI REST 2FA MMS API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MMS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send an MMS message.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/mms.do",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Send a multimedia message with SMIL/image content to one or many recipients, with optional scheduling."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,197 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SMSAPI REST 2FA Contacts API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List contacts.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.smsapi.com/contacts",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "phone_number",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List contacts."
+        },
+        {
+          "info": {
+            "name": "Create a contact.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/contacts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a contact."
+        },
+        {
+          "info": {
+            "name": "Get a contact.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.smsapi.com/contacts/:contactId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a contact."
+        },
+        {
+          "info": {
+            "name": "Update a contact.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.smsapi.com/contacts/:contactId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a contact."
+        },
+        {
+          "info": {
+            "name": "Delete a contact.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.smsapi.com/contacts/:contactId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a contact."
+        },
+        {
+          "info": {
+            "name": "List contact groups.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.smsapi.com/contacts/groups"
+          },
+          "docs": "List contact groups."
+        },
+        {
+          "info": {
+            "name": "Create a contact group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.smsapi.com/contacts/groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a contact group."
+        },
+        {
+          "info": {
+            "name": "Assign a contact to a group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.smsapi.com/contacts/:contactId/groups/:groupId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Assign a contact to a group."
+        },
+        {
+          "info": {
+            "name": "Remove a contact from a group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.smsapi.com/contacts/:contactId/groups/:groupId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a contact from a group."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

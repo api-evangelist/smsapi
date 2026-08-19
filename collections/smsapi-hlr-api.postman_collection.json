@@ -1,0 +1,167 @@
+{
+  "item": [
+    {
+      "id": "f7aee7ce-14b7-440f-8085-47fd5b1e163d",
+      "name": "HLR",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9aae2ca6-9922-408f-aa2a-2d08af76e455",
+          "name": "Perform an HLR lookup.",
+          "request": {
+            "name": "Perform an HLR lookup.",
+            "description": {
+              "content": "Validate a phone number and resolve carrier, portability, and reachability information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hlr.do"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "number",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "idx",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fa8b91c8-3aea-4ae7-a6a8-b0cc645987a8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hlr.do"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "idx",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"number\": \"string\",\n  \"status\": \"string\",\n  \"ported\": true,\n  \"network\": \"string\",\n  \"country\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.smsapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4e2bd218-8c0a-41a1-93e3-964ed6ce9033",
+    "name": "SMSAPI REST 2FA HLR API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.\n\nContact Support:\n Name: SMSAPI Support\n Email: bok@smsapi.pl",
+      "type": "text/plain"
+    }
+  }
+}
