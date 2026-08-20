@@ -306,6 +306,8 @@ apis:
   humanURL: https://www.smsapi.com/docs/#sms-api
   baseURL: https://api.smsapi.com/sms.do
   tags:
+  - ShortURLs
+  tags_raw:
   - Short URLs
   properties:
   - type: OpenAPI
@@ -420,6 +422,8 @@ apis:
   humanURL: https://www.smsapi.com/docs/#sms-api
   baseURL: https://api.smsapi.com/sms.do
   tags:
+  - VMs
+  tags_raw:
   - VMS
   properties:
   - type: OpenAPI
