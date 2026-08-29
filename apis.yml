@@ -7,6 +7,18 @@ description: SMSAPI is a European bulk business-messaging provider headquartered
   messaging, email marketing, two-factor authentication, contact and group management,
   sender field registration, subuser administration, and account/profile operations,
   authenticated with OAuth 2.0 bearer tokens over api.smsapi.com and api.smsapi.eu.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
