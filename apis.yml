@@ -318,7 +318,7 @@ apis:
   humanURL: https://www.smsapi.com/docs/#sms-api
   baseURL: https://api.smsapi.com/sms.do
   tags:
-  - Short URLs
+  - ShortURLs
   tags_raw:
   - Short URLs
   properties:
@@ -434,7 +434,7 @@ apis:
   humanURL: https://www.smsapi.com/docs/#sms-api
   baseURL: https://api.smsapi.com/sms.do
   tags:
-  - VMS
+  - VMs
   tags_raw:
   - VMS
   properties:
