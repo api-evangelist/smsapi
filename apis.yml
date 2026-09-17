@@ -47,44 +47,6 @@ created: '2026-07-01'
 modified: '2026-07-01'
 specificationVersion: '0.23'
 apis:
-- aid: smsapi:smsapi-2fa-api
-  name: SMSAPI 2FA API
-  description: The 2FA API from SMSAPI — 2 operation(s) for 2fa.
-  humanURL: https://www.smsapi.com/docs/#sms-api
-  baseURL: https://api.smsapi.com/sms.do
-  tags:
-  - 2FA
-  properties:
-  - type: OpenAPI
-    url: openapi/smsapi-2fa-api-openapi.yml
-  - type: Documentation
-    url: https://www.smsapi.com/docs/#sms-api
-  - type: APIReference
-    url: https://www.smsapi.com/docs/
-  - type: PostmanCollection
-    url: collections/smsapi.postman_collection.json
-  - type: OpenCollection
-    url: collections/smsapi.opencollection.json
-  - type: Documentation
-    url: https://www.smsapi.com/docs/#mms-api
-  - type: Documentation
-    url: https://www.smsapi.com/docs/#vms-api
-  - type: Documentation
-    url: https://www.smsapi.com/docs/#contacts-api
-  - type: Documentation
-    url: https://www.smsapi.com/docs/#sender-names-api
-  - type: Documentation
-    url: https://www.smsapi.com/docs/#2fa-api
-  - type: Documentation
-    url: https://www.smsapi.com/docs/#subusers-api
-  - type: Documentation
-    url: https://www.smsapi.com/docs/#profile-api
-  - type: Documentation
-    url: https://www.smsapi.com/docs/#hlr-api
-  - type: Documentation
-    url: https://www.smsapi.com/docs/#blacklist-api
-  - type: Documentation
-    url: https://www.smsapi.com/docs/#short-urls-api
 - aid: smsapi:smsapi-blacklist-api
   name: SMSAPI Blacklist API
   description: The Blacklist API from SMSAPI — 2 operation(s) for blacklist.
@@ -435,12 +397,48 @@ apis:
   humanURL: https://www.smsapi.com/docs/#sms-api
   baseURL: https://api.smsapi.com/sms.do
   tags:
-  - VMs
-  tags_raw:
   - VMS
   properties:
   - type: OpenAPI
     url: openapi/smsapi-vms-api-openapi.yml
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sms-api
+  - type: APIReference
+    url: https://www.smsapi.com/docs/
+  - type: PostmanCollection
+    url: collections/smsapi.postman_collection.json
+  - type: OpenCollection
+    url: collections/smsapi.opencollection.json
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#mms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#vms-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#contacts-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#sender-names-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#2fa-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#subusers-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#profile-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#hlr-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#blacklist-api
+  - type: Documentation
+    url: https://www.smsapi.com/docs/#short-urls-api
+- aid: smsapi:smsapi-2-fa-api
+  name: SMSAPI 2 FA API
+  description: The 2 FA API from SMSAPI — 2 operation(s) for 2 fa.
+  humanURL: https://www.smsapi.com/docs/#sms-api
+  baseURL: https://api.smsapi.com/sms.do
+  tags:
+  - 2 FA
+  properties:
+  - type: OpenAPI
+    url: openapi/smsapi-2-fa-api-openapi.yml
   - type: Documentation
     url: https://www.smsapi.com/docs/#sms-api
   - type: APIReference
