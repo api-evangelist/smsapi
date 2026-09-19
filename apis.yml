@@ -205,6 +205,8 @@ apis:
   humanURL: https://www.smsapi.com/docs/#sms-api
   baseURL: https://api.smsapi.com/sms.do
   tags:
+  - Profiles
+  tags_raw:
   - Profile
   properties:
   - type: OpenAPI
@@ -397,6 +399,8 @@ apis:
   humanURL: https://www.smsapi.com/docs/#sms-api
   baseURL: https://api.smsapi.com/sms.do
   tags:
+  - VMs
+  tags_raw:
   - VMS
   properties:
   - type: OpenAPI
@@ -435,6 +439,8 @@ apis:
   humanURL: https://www.smsapi.com/docs/#sms-api
   baseURL: https://api.smsapi.com/sms.do
   tags:
+  - 2FA
+  tags_raw:
   - 2 FA
   properties:
   - type: OpenAPI
