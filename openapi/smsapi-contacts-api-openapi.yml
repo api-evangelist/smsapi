@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: SMSAPI REST 2FA Contacts API
+  title: SMSAPI REST Contacts API
   description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
   termsOfService: https://www.smsapi.com/en/terms
   contact:
@@ -23,7 +23,7 @@ paths:
       operationId: listContacts
       tags:
       - Contacts
-      summary: List contacts.
+      summary: List contacts
       parameters:
       - name: offset
         in: query
@@ -48,7 +48,7 @@ paths:
       operationId: createContact
       tags:
       - Contacts
-      summary: Create a contact.
+      summary: Create a contact
       requestBody:
         required: true
         content:
@@ -67,7 +67,7 @@ paths:
       operationId: getContact
       tags:
       - Contacts
-      summary: Get a contact.
+      summary: Get a contact
       parameters:
       - $ref: '#/components/parameters/ContactId'
       responses:
@@ -81,7 +81,7 @@ paths:
       operationId: updateContact
       tags:
       - Contacts
-      summary: Update a contact.
+      summary: Update a contact
       parameters:
       - $ref: '#/components/parameters/ContactId'
       requestBody:
@@ -101,7 +101,7 @@ paths:
       operationId: deleteContact
       tags:
       - Contacts
-      summary: Delete a contact.
+      summary: Delete a contact
       parameters:
       - $ref: '#/components/parameters/ContactId'
       responses:
@@ -112,7 +112,7 @@ paths:
       operationId: listContactGroups
       tags:
       - Contacts
-      summary: List contact groups.
+      summary: List contact groups
       responses:
         '200':
           description: OK
@@ -124,7 +124,7 @@ paths:
       operationId: createContactGroup
       tags:
       - Contacts
-      summary: Create a contact group.
+      summary: Create a contact group
       requestBody:
         required: true
         content:
@@ -143,7 +143,7 @@ paths:
       operationId: assignContactToGroup
       tags:
       - Contacts
-      summary: Assign a contact to a group.
+      summary: Assign a contact to a group
       parameters:
       - $ref: '#/components/parameters/ContactId'
       - $ref: '#/components/parameters/GroupId'
@@ -154,7 +154,7 @@ paths:
       operationId: removeContactFromGroup
       tags:
       - Contacts
-      summary: Remove a contact from a group.
+      summary: Remove a contact from a group
       parameters:
       - $ref: '#/components/parameters/ContactId'
       - $ref: '#/components/parameters/GroupId'
@@ -176,6 +176,43 @@ components:
           type: string
       required:
       - phone_number
+    ContactCollection:
+      type: object
+      properties:
+        size:
+          type: integer
+        collection:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+    Contact:
+      type: object
+      properties:
+        id:
+          type: string
+        phone_number:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        source:
+          type: string
+        date_created:
+          type: string
+    Group:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        contacts_count:
+          type: integer
     GroupCollection:
       type: object
       properties:
@@ -194,43 +231,6 @@ components:
           type: string
       required:
       - name
-    ContactCollection:
-      type: object
-      properties:
-        size:
-          type: integer
-        collection:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contact'
-    Group:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        contacts_count:
-          type: integer
-    Contact:
-      type: object
-      properties:
-        id:
-          type: string
-        phone_number:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        email:
-          type: string
-        source:
-          type: string
-        date_created:
-          type: string
   parameters:
     GroupId:
       name: groupId

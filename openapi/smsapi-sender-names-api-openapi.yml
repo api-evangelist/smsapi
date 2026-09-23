@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: SMSAPI REST 2FA Sender Names API
+  title: SMSAPI REST Sender Names API
   description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
   termsOfService: https://www.smsapi.com/en/terms
   contact:
@@ -23,7 +23,7 @@ paths:
       operationId: listSenderNames
       tags:
       - Sender Names
-      summary: List sender names.
+      summary: List sender names
       responses:
         '200':
           description: OK
@@ -35,7 +35,7 @@ paths:
       operationId: createSenderName
       tags:
       - Sender Names
-      summary: Register a new sender name.
+      summary: Register a new sender name
       requestBody:
         required: true
         content:
@@ -54,7 +54,7 @@ paths:
       operationId: getSenderName
       tags:
       - Sender Names
-      summary: Get a sender name.
+      summary: Get a sender name
       parameters:
       - $ref: '#/components/parameters/Sender'
       responses:
@@ -68,7 +68,7 @@ paths:
       operationId: deleteSenderName
       tags:
       - Sender Names
-      summary: Delete a sender name.
+      summary: Delete a sender name
       parameters:
       - $ref: '#/components/parameters/Sender'
       responses:
@@ -79,25 +79,21 @@ paths:
       operationId: setDefaultSenderName
       tags:
       - Sender Names
-      summary: Set a sender name as default.
+      summary: Set a sender name as default
       parameters:
       - $ref: '#/components/parameters/Sender'
       responses:
         '200':
           description: OK
 components:
+  parameters:
+    Sender:
+      name: sender
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
-    SenderNameInput:
-      type: object
-      properties:
-        sender:
-          type: string
-      required:
-      - sender
-    SenderNameCollection:
-      type: array
-      items:
-        $ref: '#/components/schemas/SenderName'
     SenderName:
       type: object
       properties:
@@ -108,13 +104,17 @@ components:
           description: Sender name status (e.g. ACTIVE, INACTIVE).
         is_default:
           type: boolean
-  parameters:
-    Sender:
-      name: sender
-      in: path
-      required: true
-      schema:
-        type: string
+    SenderNameCollection:
+      type: array
+      items:
+        $ref: '#/components/schemas/SenderName'
+    SenderNameInput:
+      type: object
+      properties:
+        sender:
+          type: string
+      required:
+      - sender
   securitySchemes:
     bearerAuth:
       type: http

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: SMSAPI REST 2FA MMS API
+  title: SMSAPI REST MMS API
   description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
   termsOfService: https://www.smsapi.com/en/terms
   contact:
@@ -23,7 +23,7 @@ paths:
       operationId: sendMms
       tags:
       - MMS
-      summary: Send an MMS message.
+      summary: Send an MMS message
       description: Send a multimedia message with SMIL/image content to one or many recipients, with optional scheduling.
       requestBody:
         required: true

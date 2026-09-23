@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: SMSAPI REST 2FA Subusers API
+  title: SMSAPI REST Subusers API
   description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
   termsOfService: https://www.smsapi.com/en/terms
   contact:
@@ -23,7 +23,7 @@ paths:
       operationId: listSubusers
       tags:
       - Subusers
-      summary: List subusers.
+      summary: List subusers
       responses:
         '200':
           description: OK
@@ -35,7 +35,7 @@ paths:
       operationId: createSubuser
       tags:
       - Subusers
-      summary: Create a subuser.
+      summary: Create a subuser
       requestBody:
         required: true
         content:
@@ -54,7 +54,7 @@ paths:
       operationId: getSubuser
       tags:
       - Subusers
-      summary: Get a subuser.
+      summary: Get a subuser
       parameters:
       - $ref: '#/components/parameters/SubuserId'
       responses:
@@ -68,7 +68,7 @@ paths:
       operationId: updateSubuser
       tags:
       - Subusers
-      summary: Update a subuser.
+      summary: Update a subuser
       parameters:
       - $ref: '#/components/parameters/SubuserId'
       requestBody:
@@ -88,7 +88,7 @@ paths:
       operationId: deleteSubuser
       tags:
       - Subusers
-      summary: Delete a subuser.
+      summary: Delete a subuser
       parameters:
       - $ref: '#/components/parameters/SubuserId'
       responses:
@@ -96,6 +96,22 @@ paths:
           description: No Content
 components:
   schemas:
+    Subuser:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        active:
+          type: boolean
+        points:
+          type: object
+          properties:
+            from_account:
+              type: boolean
+            per_month:
+              type: number
     SubuserInput:
       type: object
       properties:
@@ -119,22 +135,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Subuser'
-    Subuser:
-      type: object
-      properties:
-        id:
-          type: string
-        username:
-          type: string
-        active:
-          type: boolean
-        points:
-          type: object
-          properties:
-            from_account:
-              type: boolean
-            per_month:
-              type: number
   parameters:
     SubuserId:
       name: subuserId

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: SMSAPI REST 2FA VMS API
+  title: SMSAPI REST VMS API
   description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
   termsOfService: https://www.smsapi.com/en/terms
   contact:
@@ -16,14 +16,14 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- name: VMS
+- name: VMs
 paths:
   /vms.do:
     post:
       operationId: sendVms
       tags:
-      - VMS
-      summary: Send a voice message (VMS).
+      - VMs
+      summary: Send a voice message (VMS)
       description: Deliver a voice message generated from text-to-speech (tts) or from an uploaded audio file, with optional scheduling.
       requestBody:
         required: true
@@ -40,24 +40,6 @@ paths:
                 $ref: '#/components/schemas/SendMessageResponse'
 components:
   schemas:
-    SendMessageResponse:
-      type: object
-      properties:
-        count:
-          type: integer
-        list:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              points:
-                type: number
-              number:
-                type: string
-              status:
-                type: string
     SendVmsRequest:
       type: object
       properties:
@@ -78,6 +60,24 @@ components:
           default: json
       required:
       - to
+    SendMessageResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+        list:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              points:
+                type: number
+              number:
+                type: string
+              status:
+                type: string
   securitySchemes:
     bearerAuth:
       type: http

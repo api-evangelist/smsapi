@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: SMSAPI REST 2FA Blacklist API
+  title: SMSAPI REST Blacklist API
   description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
   termsOfService: https://www.smsapi.com/en/terms
   contact:
@@ -23,7 +23,7 @@ paths:
       operationId: listBlacklist
       tags:
       - Blacklist
-      summary: List blacklisted phone numbers.
+      summary: List blacklisted phone numbers
       responses:
         '200':
           description: OK
@@ -35,7 +35,7 @@ paths:
       operationId: addBlacklistNumber
       tags:
       - Blacklist
-      summary: Add a phone number to the blacklist.
+      summary: Add a phone number to the blacklist
       requestBody:
         required: true
         content:
@@ -54,7 +54,7 @@ paths:
       operationId: removeBlacklistNumber
       tags:
       - Blacklist
-      summary: Remove a phone number from the blacklist.
+      summary: Remove a phone number from the blacklist
       parameters:
       - name: phoneNumber
         in: path

@@ -1,17 +1,7 @@
 {
   "provider": "smsapi",
   "sources": [
-    "smsapi-2fa-api-openapi.yml",
-    "smsapi-blacklist-api-openapi.yml",
-    "smsapi-contacts-api-openapi.yml",
-    "smsapi-hlr-api-openapi.yml",
-    "smsapi-mms-api-openapi.yml",
-    "smsapi-profile-api-openapi.yml",
-    "smsapi-sender-names-api-openapi.yml",
-    "smsapi-short-urls-api-openapi.yml",
-    "smsapi-sms-api-openapi.yml",
-    "smsapi-subusers-api-openapi.yml",
-    "smsapi-vms-api-openapi.yml"
+    "_original/smsapi-openapi.yml"
   ],
   "outputs": [
     "smsapi-2fa-api-openapi.yml",
@@ -20,15 +10,34 @@
     "smsapi-hlr-api-openapi.yml",
     "smsapi-mms-api-openapi.yml",
     "smsapi-profile-api-openapi.yml",
+    "smsapi-sms-api-openapi.yml",
     "smsapi-sender-names-api-openapi.yml",
     "smsapi-short-urls-api-openapi.yml",
-    "smsapi-sms-api-openapi.yml",
     "smsapi-subusers-api-openapi.yml",
     "smsapi-vms-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 2 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "smsapi-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "superseded outputs removed: smsapi-2-fa-api-openapi.yml, smsapi-v-ms-api-openapi.yml",
+    "apis.yml register: written (+2 apis, 11 total)"
+  ],
+  "skipped": [
+    "smsapi-2-fa-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smsapi-blacklist-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smsapi-contacts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smsapi-hlr-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smsapi-mms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smsapi-profile-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smsapi-sender-names-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smsapi-short-urls-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smsapi-sms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smsapi-subusers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smsapi-v-ms-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: SMSAPI REST 2FA API
+  title: SMSAPI REST 2 FA API
   description: Representative OpenAPI description of the SMSAPI messaging platform, a European bulk-messaging provider (part of LINK Mobility). Covers SMS, MMS, voice (VMS), contacts, sender names, two-factor authentication, subusers, account profile, HLR lookup, blacklist, and short URLs. Requests are authenticated with an OAuth 2.0 bearer token issued from the SMSAPI customer panel.
   termsOfService: https://www.smsapi.com/en/terms
   contact:
@@ -16,14 +16,14 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- name: 2FA
+- name: 2 FA
 paths:
   /authenticator/send_code:
     post:
       operationId: sendAuthCode
       tags:
-      - 2FA
-      summary: Send a one-time 2FA code.
+      - 2 FA
+      summary: Send a one-time 2FA code
       description: Generate and deliver a one-time passcode over SMS or voice.
       requestBody:
         required: true
@@ -42,8 +42,8 @@ paths:
     post:
       operationId: checkAuthCode
       tags:
-      - 2FA
-      summary: Validate a one-time 2FA code.
+      - 2 FA
+      summary: Validate a one-time 2FA code
       requestBody:
         required: true
         content:
@@ -77,6 +77,13 @@ components:
           type: integer
       required:
       - recipient
+    CheckCodeResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        valid:
+          type: boolean
     SendCodeResponse:
       type: object
       properties:
@@ -88,13 +95,6 @@ components:
           type: string
         expires_at:
           type: string
-    CheckCodeResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        valid:
-          type: boolean
     CheckCodeRequest:
       type: object
       properties:
