@@ -66,13 +66,6 @@ paths:
           description: No Content
 components:
   schemas:
-    BlacklistEntry:
-      type: object
-      properties:
-        phone_number:
-          type: string
-        created_at:
-          type: string
     BlacklistInput:
       type: object
       properties:
@@ -89,6 +82,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BlacklistEntry'
+    BlacklistEntry:
+      type: object
+      properties:
+        phone_number:
+          type: string
+        created_at:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http

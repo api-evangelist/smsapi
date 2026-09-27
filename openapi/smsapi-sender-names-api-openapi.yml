@@ -86,14 +86,14 @@ paths:
         '200':
           description: OK
 components:
-  parameters:
-    Sender:
-      name: sender
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
+    SenderNameInput:
+      type: object
+      properties:
+        sender:
+          type: string
+      required:
+      - sender
     SenderName:
       type: object
       properties:
@@ -108,13 +108,13 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/SenderName'
-    SenderNameInput:
-      type: object
-      properties:
-        sender:
-          type: string
-      required:
-      - sender
+  parameters:
+    Sender:
+      name: sender
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

@@ -17,15 +17,15 @@
     "smsapi-vms-api-openapi.yml"
   ],
   "archived": [
-    "deleted 2 superseded output(s) from the previous generation"
+    "deleted 1 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "smsapi-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
-    "superseded outputs removed: smsapi-2-fa-api-openapi.yml, smsapi-v-ms-api-openapi.yml",
-    "apis.yml register: written (+2 apis, 11 total)"
+    "superseded outputs removed: smsapi-2-fa-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 11 total)"
   ],
   "skipped": [
     "smsapi-2-fa-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -38,6 +38,6 @@
     "smsapi-short-urls-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "smsapi-sms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "smsapi-subusers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "smsapi-v-ms-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "smsapi-vms-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }

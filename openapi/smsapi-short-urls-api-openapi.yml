@@ -51,15 +51,6 @@ paths:
                 $ref: '#/components/schemas/ShortUrl'
 components:
   schemas:
-    ShortUrlInput:
-      type: object
-      properties:
-        name:
-          type: string
-        url:
-          type: string
-      required:
-      - url
     ShortUrlCollection:
       type: object
       properties:
@@ -69,6 +60,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShortUrl'
+    ShortUrlInput:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+      required:
+      - url
     ShortUrl:
       type: object
       properties:
