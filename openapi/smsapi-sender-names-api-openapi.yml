@@ -87,13 +87,10 @@ paths:
           description: OK
 components:
   schemas:
-    SenderNameInput:
-      type: object
-      properties:
-        sender:
-          type: string
-      required:
-      - sender
+    SenderNameCollection:
+      type: array
+      items:
+        $ref: '#/components/schemas/SenderName'
     SenderName:
       type: object
       properties:
@@ -104,10 +101,13 @@ components:
           description: Sender name status (e.g. ACTIVE, INACTIVE).
         is_default:
           type: boolean
-    SenderNameCollection:
-      type: array
-      items:
-        $ref: '#/components/schemas/SenderName'
+    SenderNameInput:
+      type: object
+      properties:
+        sender:
+          type: string
+      required:
+      - sender
   parameters:
     Sender:
       name: sender

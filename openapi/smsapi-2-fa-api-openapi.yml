@@ -59,24 +59,16 @@ paths:
                 $ref: '#/components/schemas/CheckCodeResponse'
 components:
   schemas:
-    SendCodeRequest:
+    CheckCodeRequest:
       type: object
       properties:
-        recipient:
+        id:
           type: string
-        channel:
+        code:
           type: string
-          enum:
-          - sms
-          - call
-        from:
-          type: string
-        message_template:
-          type: string
-        expiry:
-          type: integer
       required:
-      - recipient
+      - id
+      - code
     CheckCodeResponse:
       type: object
       properties:
@@ -95,16 +87,24 @@ components:
           type: string
         expires_at:
           type: string
-    CheckCodeRequest:
+    SendCodeRequest:
       type: object
       properties:
-        id:
+        recipient:
           type: string
-        code:
+        channel:
           type: string
+          enum:
+          - sms
+          - call
+        from:
+          type: string
+        message_template:
+          type: string
+        expiry:
+          type: integer
       required:
-      - id
-      - code
+      - recipient
   securitySchemes:
     bearerAuth:
       type: http

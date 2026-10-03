@@ -163,28 +163,6 @@ paths:
           description: No Content
 components:
   schemas:
-    ContactCollection:
-      type: object
-      properties:
-        size:
-          type: integer
-        collection:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contact'
-    ContactInput:
-      type: object
-      properties:
-        phone_number:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        email:
-          type: string
-      required:
-      - phone_number
     GroupInput:
       type: object
       properties:
@@ -194,15 +172,6 @@ components:
           type: string
       required:
       - name
-    GroupCollection:
-      type: object
-      properties:
-        size:
-          type: integer
-        collection:
-          type: array
-          items:
-            $ref: '#/components/schemas/Group'
     Contact:
       type: object
       properties:
@@ -220,6 +189,37 @@ components:
           type: string
         date_created:
           type: string
+    ContactInput:
+      type: object
+      properties:
+        phone_number:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+      required:
+      - phone_number
+    GroupCollection:
+      type: object
+      properties:
+        size:
+          type: integer
+        collection:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+    ContactCollection:
+      type: object
+      properties:
+        size:
+          type: integer
+        collection:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
     Group:
       type: object
       properties:

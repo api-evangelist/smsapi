@@ -40,24 +40,6 @@ paths:
                 $ref: '#/components/schemas/SendMessageResponse'
 components:
   schemas:
-    SendMessageResponse:
-      type: object
-      properties:
-        count:
-          type: integer
-        list:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              points:
-                type: number
-              number:
-                type: string
-              status:
-                type: string
     SendMmsRequest:
       type: object
       properties:
@@ -76,6 +58,24 @@ components:
       required:
       - to
       - smil
+    SendMessageResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+        list:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              points:
+                type: number
+              number:
+                type: string
+              status:
+                type: string
   securitySchemes:
     bearerAuth:
       type: http

@@ -119,6 +119,15 @@ components:
               type: boolean
             per_month:
               type: number
+    SubuserCollection:
+      type: object
+      properties:
+        size:
+          type: integer
+        collection:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subuser'
     SubuserInput:
       type: object
       properties:
@@ -133,15 +142,6 @@ components:
       required:
       - username
       - password
-    SubuserCollection:
-      type: object
-      properties:
-        size:
-          type: integer
-        collection:
-          type: array
-          items:
-            $ref: '#/components/schemas/Subuser'
   securitySchemes:
     bearerAuth:
       type: http
