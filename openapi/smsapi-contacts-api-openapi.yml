@@ -163,15 +163,15 @@ paths:
           description: No Content
 components:
   schemas:
-    GroupInput:
+    GroupCollection:
       type: object
       properties:
-        name:
-          type: string
-        description:
-          type: string
-      required:
-      - name
+        size:
+          type: integer
+        collection:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
     Contact:
       type: object
       properties:
@@ -202,15 +202,6 @@ components:
           type: string
       required:
       - phone_number
-    GroupCollection:
-      type: object
-      properties:
-        size:
-          type: integer
-        collection:
-          type: array
-          items:
-            $ref: '#/components/schemas/Group'
     ContactCollection:
       type: object
       properties:
@@ -220,6 +211,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Contact'
+    GroupInput:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+      required:
+      - name
     Group:
       type: object
       properties:

@@ -95,13 +95,6 @@ paths:
         '204':
           description: No Content
 components:
-  parameters:
-    SubuserId:
-      name: subuserId
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     Subuser:
       type: object
@@ -142,6 +135,13 @@ components:
       required:
       - username
       - password
+  parameters:
+    SubuserId:
+      name: subuserId
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

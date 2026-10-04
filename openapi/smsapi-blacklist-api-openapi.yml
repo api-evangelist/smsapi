@@ -73,6 +73,13 @@ components:
           type: string
         created_at:
           type: string
+    BlacklistInput:
+      type: object
+      properties:
+        phone_number:
+          type: string
+      required:
+      - phone_number
     BlacklistCollection:
       type: object
       properties:
@@ -82,13 +89,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BlacklistEntry'
-    BlacklistInput:
-      type: object
-      properties:
-        phone_number:
-          type: string
-      required:
-      - phone_number
   securitySchemes:
     bearerAuth:
       type: http

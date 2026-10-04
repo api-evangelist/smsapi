@@ -59,6 +59,13 @@ paths:
                 $ref: '#/components/schemas/CheckCodeResponse'
 components:
   schemas:
+    CheckCodeResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        valid:
+          type: boolean
     CheckCodeRequest:
       type: object
       properties:
@@ -69,13 +76,6 @@ components:
       required:
       - id
       - code
-    CheckCodeResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        valid:
-          type: boolean
     SendCodeResponse:
       type: object
       properties:
