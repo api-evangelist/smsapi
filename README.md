@@ -1,4 +1,4 @@
-# SMSAPI (smsapi)
+# SMSAPI
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,261 +66,137 @@
 
 SMSAPI is a European bulk business-messaging provider headquartered in Poland and part of LINK Mobility. Its REST API delivers SMS, MMS, and voice (VMS) messaging, email marketing, two-factor authentication, contact and group management, sender field registration, subuser administration, and account/profile operations, authenticated with OAuth 2.0 bearer tokens over api.smsapi.com and api.smsapi.eu.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/smsapi/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/smsapi/refs/heads/main/apis.yml)
+**Areas:** Messaging · SMS · MMS · Voice · 2FA · Bulk Messaging · Communications · CPaaS
 
-> **Corporate state:** SMSAPI is part of [LINK Mobility](https://www.linkmobility.com/), a European CPaaS group. The service continues to operate under the SMSAPI brand with its own developer platform at smsapi.com/docs and dev.smsapi.com.
+## SMSAPI on APIs.io
 
-## Tags
+Everything profiled for SMSAPI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/smsapi/](https://apis.io/providers/smsapi/)** — or go straight to one of the APIs or properties below.
 
-- Messaging
-- SMS
-- MMS
-- Voice
-- 2FA
-- Bulk Messaging
-- Communications
-- CPaaS
+### APIs (11)
 
-## Timestamps
+- [SMSAPI Blacklist API](https://apis.io/apis/smsapi/smsapi-blacklist-api/) — The Blacklist API from SMSAPI — 2 operation(s) for blacklist.
+- [SMSAPI Contacts API](https://apis.io/apis/smsapi/smsapi-contacts-api/) — The Contacts API from SMSAPI — 4 operation(s) for contacts.
+- [SMSAPI HLR API](https://apis.io/apis/smsapi/smsapi-hlr-api/) — The HLR API from SMSAPI — 1 operation(s) for hlr.
+- [SMSAPI MMS API](https://apis.io/apis/smsapi/smsapi-mms-api/) — The MMS API from SMSAPI — 1 operation(s) for mms.
+- [SMSAPI Profile API](https://apis.io/apis/smsapi/smsapi-profile-api/) — The Profile API from SMSAPI — 1 operation(s) for profile.
+- [SMSAPI Sender Names API](https://apis.io/apis/smsapi/smsapi-sender-names-api/) — The Sender Names API from SMSAPI — 3 operation(s) for sender names.
+- [SMSAPI Short URLs API](https://apis.io/apis/smsapi/smsapi-short-urls-api/) — The Short URLs API from SMSAPI — 1 operation(s) for short urls.
+- [SMSAPI SMS API](https://apis.io/apis/smsapi/smsapi-sms-api/) — The SMS API from SMSAPI — 1 operation(s) for sms.
+- [SMSAPI Subusers API](https://apis.io/apis/smsapi/smsapi-subusers-api/) — The Subusers API from SMSAPI — 2 operation(s) for subusers.
+- [SMSAPI VMS API](https://apis.io/apis/smsapi/smsapi-vms-api/) — The VMS API from SMSAPI — 1 operation(s) for vms.
+- [SMSAPI 2 FA API](https://apis.io/apis/smsapi/smsapi-2-fa-api/) — The 2 FA API from SMSAPI — 2 operation(s) for 2 fa.
 
-- **Created:** 2026-07-01
-- **Modified:** 2026-07-01
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### SMSAPI SMS API
+#### Agentic access (1)
 
-Send single, bulk, scheduled, and templated text messages via POST to /sms.do, with sender field, flash, personalization, opt-out links, and cut.li short-URL support, plus delivery-report callbacks.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- **Human URL:** [https://www.smsapi.com/docs/#sms-api](https://www.smsapi.com/docs/#sms-api)
-- **Base URL:** `https://api.smsapi.com/sms.do`
+- [Smsapi Agentic Access](https://apis.io/agentic-access/smsapi/smsapi-agentic-access/)
 
-#### Tags
+#### Collections (12)
 
-- SMS
-- Messaging
-- Bulk Messaging
+Postman and Open Collection request collections.
 
-#### Properties
+- [SMSAPI REST API](https://apis.io/collections/smsapi/open-smsapi/)
+- [SMSAPI REST 2FA API](https://apis.io/collections/smsapi/open-smsapi-2fa-api/)
+- [SMSAPI REST 2FA Blacklist API](https://apis.io/collections/smsapi/open-smsapi-blacklist-api/)
+- [SMSAPI REST 2FA Contacts API](https://apis.io/collections/smsapi/open-smsapi-contacts-api/)
+- [SMSAPI REST 2FA HLR API](https://apis.io/collections/smsapi/open-smsapi-hlr-api/)
+- [SMSAPI REST 2FA MMS API](https://apis.io/collections/smsapi/open-smsapi-mms-api/)
+- [SMSAPI REST 2FA Profile API](https://apis.io/collections/smsapi/open-smsapi-profile-api/)
+- [SMSAPI REST 2FA Sender Names API](https://apis.io/collections/smsapi/open-smsapi-sender-names-api/)
+- [SMSAPI REST 2FA Short URLs API](https://apis.io/collections/smsapi/open-smsapi-short-urls-api/)
+- [SMSAPI REST 2FA SMS API](https://apis.io/collections/smsapi/open-smsapi-sms-api/)
+- [SMSAPI REST 2FA Subusers API](https://apis.io/collections/smsapi/open-smsapi-subusers-api/)
+- [SMSAPI REST 2FA VMS API](https://apis.io/collections/smsapi/open-smsapi-vms-api/)
 
-- [Documentation](https://www.smsapi.com/docs/#sms-api)
-- [API Reference](https://www.smsapi.com/docs/)
-- [OpenAPI](openapi/smsapi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/smsapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/smsapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Security (3)
 
-### SMSAPI MMS API
+Authentication, trust centre, and vulnerability disclosure.
 
-Send multimedia messages (SMIL/image content) to one or many recipients via POST to /mms.do, with scheduling and delivery reporting.
+- [Smsapi Authentication](https://apis.io/security/smsapi/smsapi-authentication/)
+- [Smsapi Domain Security](https://apis.io/security/smsapi/smsapi-domain-security/)
+- [Smsapi Trust Center](https://apis.io/security/smsapi/smsapi-trust-center/)
 
-- **Human URL:** [https://www.smsapi.com/docs/#mms-api](https://www.smsapi.com/docs/#mms-api)
-- **Base URL:** `https://api.smsapi.com/mms.do`
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- MMS
-- Messaging
-- Multimedia
+- [Smsapi Plans Pricing](https://apis.io/plans/smsapi/smsapi-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [Documentation](https://www.smsapi.com/docs/#mms-api)
-- [OpenAPI](openapi/smsapi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/smsapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/smsapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published request limits.
 
-### SMSAPI VMS Voice API
+- [Smsapi Rate Limits](https://apis.io/rate-limits/smsapi/smsapi-rate-limits/)
 
-Deliver voice messages (VMS) from text-to-speech or an uploaded audio file via POST to /vms.do, with scheduling and call-result callbacks.
+#### FinOps (1)
 
-- **Human URL:** [https://www.smsapi.com/docs/#vms-api](https://www.smsapi.com/docs/#vms-api)
-- **Base URL:** `https://api.smsapi.com/vms.do`
+What the API costs to run, by operation.
 
-#### Tags
+- [Smsapi Finops](https://apis.io/finops/smsapi/smsapi-finops/)
 
-- Voice
-- VMS
-- Text to Speech
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation](https://www.smsapi.com/docs/#vms-api)
-- [OpenAPI](openapi/smsapi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/smsapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/smsapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SMSAPI Contacts API
-
-Full CRUD over the contact address book, contact groups, and custom fields via /contacts, /contacts/{id}/groups, and /contacts/groups, for building and segmenting recipient lists.
-
-- **Human URL:** [https://www.smsapi.com/docs/#contacts-api](https://www.smsapi.com/docs/#contacts-api)
-- **Base URL:** `https://api.smsapi.com/contacts`
-
-#### Tags
-
-- Contacts
-- Groups
-- Address Book
-
-#### Properties
-
-- [Documentation](https://www.smsapi.com/docs/#contacts-api)
-- [OpenAPI](openapi/smsapi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/smsapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/smsapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SMSAPI Sender Names API
-
-List, register, inspect, and remove alphanumeric sender fields (sender names) via /sendernames, including default sender selection for outbound SMS.
-
-- **Human URL:** [https://www.smsapi.com/docs/#sender-names-api](https://www.smsapi.com/docs/#sender-names-api)
-- **Base URL:** `https://api.smsapi.com/sendernames`
-
-#### Tags
-
-- Sender Names
-- Sender Fields
-- Branding
-
-#### Properties
-
-- [Documentation](https://www.smsapi.com/docs/#sender-names-api)
-- [OpenAPI](openapi/smsapi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/smsapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/smsapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SMSAPI 2FA Authentication API
-
-Generate and validate one-time passcodes for two-factor authentication via /authenticator/send_code and /authenticator/check_code, delivered over SMS or voice.
-
-- **Human URL:** [https://www.smsapi.com/docs/#2fa-api](https://www.smsapi.com/docs/#2fa-api)
-- **Base URL:** `https://api.smsapi.com/authenticator`
-
-#### Tags
-
-- 2FA
-- Authentication
-- Verification
-- OTP
-
-#### Properties
-
-- [Documentation](https://www.smsapi.com/docs/#2fa-api)
-- [OpenAPI](openapi/smsapi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/smsapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/smsapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SMSAPI Subusers API
-
-Create and administer subaccounts (subusers) via /subusers, including credit allocation, points limits, and per-subuser permissions for delegated sending.
-
-- **Human URL:** [https://www.smsapi.com/docs/#subusers-api](https://www.smsapi.com/docs/#subusers-api)
-- **Base URL:** `https://api.smsapi.com/subusers`
-
-#### Tags
-
-- Subusers
-- Account Management
-- Administration
-
-#### Properties
-
-- [Documentation](https://www.smsapi.com/docs/#subusers-api)
-- [OpenAPI](openapi/smsapi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/smsapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/smsapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SMSAPI Profile and Account API
-
-Retrieve account profile details and current credit balance (points) via GET /profile for monitoring available funds before sending.
-
-- **Human URL:** [https://www.smsapi.com/docs/#profile-api](https://www.smsapi.com/docs/#profile-api)
-- **Base URL:** `https://api.smsapi.com/profile`
-
-#### Tags
-
-- Profile
-- Account
-- Balance
-
-#### Properties
-
-- [Documentation](https://www.smsapi.com/docs/#profile-api)
-- [OpenAPI](openapi/smsapi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/smsapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/smsapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SMSAPI HLR Lookup API
-
-Validate phone numbers and resolve carrier, portability, and reachability information via HLR lookups on /hlr.do, with results returned inline or via callback.
-
-- **Human URL:** [https://www.smsapi.com/docs/#hlr-api](https://www.smsapi.com/docs/#hlr-api)
-- **Base URL:** `https://api.smsapi.com/hlr.do`
-
-#### Tags
-
-- HLR
-- Number Validation
-- Lookup
-
-#### Properties
-
-- [Documentation](https://www.smsapi.com/docs/#hlr-api)
-- [OpenAPI](openapi/smsapi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/smsapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/smsapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SMSAPI Blacklist API
-
-Manage opted-out recipients via /blacklist/phone_numbers so blacklisted numbers are automatically excluded from outbound campaigns for compliance.
-
-- **Human URL:** [https://www.smsapi.com/docs/#blacklist-api](https://www.smsapi.com/docs/#blacklist-api)
-- **Base URL:** `https://api.smsapi.com/blacklist/phone_numbers`
-
-#### Tags
-
-- Blacklist
-- Opt-Out
-- Compliance
-
-#### Properties
-
-- [Documentation](https://www.smsapi.com/docs/#blacklist-api)
-- [OpenAPI](openapi/smsapi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/smsapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/smsapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SMSAPI Short URLs API
-
-Create and manage trackable cut.li short links via /short_urls and retrieve per-link click statistics for measuring campaign engagement.
-
-- **Human URL:** [https://www.smsapi.com/docs/#short-urls-api](https://www.smsapi.com/docs/#short-urls-api)
-- **Base URL:** `https://api.smsapi.com/short_urls`
-
-#### Tags
-
-- Short URLs
-- cut.li
-- Link Tracking
-
-#### Properties
-
-- [Documentation](https://www.smsapi.com/docs/#short-urls-api)
-- [OpenAPI](openapi/smsapi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/smsapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/smsapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/smsapi)
-- [LinkedIn](https://www.linkedin.com/company/smsapi-com)
 - [Website](https://www.smsapi.com/)
 - [Documentation](https://www.smsapi.com/docs/)
-- [Plans](plans/smsapi-plans-pricing.yml)
-- [Rate Limits](rate-limits/smsapi-rate-limits.yml)
-- [Fin Ops](finops/smsapi-finops.yml)
+- [Blog](https://www.smsapi.com/blog/feed)
+- [GitHub](https://github.com/smsapi)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 28.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 48.5 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 15.8 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 14.2** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/smsapi/](https://apis.io/providers/smsapi/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for SMSAPI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/smsapi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
